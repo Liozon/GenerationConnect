@@ -1,0 +1,260 @@
+<div class="switch-center">
+    <div class="btn-group" id="status" data-toggle="buttons">
+        <label class="btn btn-default btn-on btn-lg active" id="btnSeniorForm">
+              <input type="radio" value="senior" name="btnSeniorForm" checked="checked">Senior</label>
+        <label class="btn btn-default btn-on btn-lg" id="btnJuniorForm">
+              <input type="radio" value="btnJuniorForm">Junior</label>
+    </div>
+</div>
+<div class="formSenior">
+    <h1>Inscription senior</h1>
+    <!--la ligne " action="http://www.comem.ch/tools/dump.asp" " sert de test. Il faudra la supprimer A KEEP  action="/api/seniors"-->
+    <div class="alert-error"></div>
+    <form method="POST" id="formsenior" action="http://pingouin.heig-vd.ch/jurazone/api/seniors">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input seniorInputSex" type="radio" name="seniorInputSex" id="seniorInlineRadio1" value="femme" required>
+            <label class="form-check-label" for="seniorInlineRadio1">Femme</label>
+            <input class="form-check-input seniorInputSex" type="radio" name="seniorInputSex" id="seniorInlineRadio2" value="homme" required>
+            <label class="form-check-label" for="seniorInlineRadio2">Homme</label>
+            <input class="form-check-input seniorInputSex" type="radio" name="seniorInputSex" id="seniorInlineRadio3" value="autre" required>
+            <label class="form-check-label" for="seniorInlineRadio3">Autre</label>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="seniorInputFirstName">Prénom</label>
+                <input type="text" name="seniorInputFirstName" class="form-control" id="seniorInputFirstName" placeholder="Camille" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="seniorInputName">Nom</label>
+                <input type="text" name="seniorInputName" class="form-control" id="seniorInputName" placeholder="Dupond" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="seniorInputPseudo">Pseudo</label>
+                <input type="text" name="seniorInputPseudo" class="form-control" id="seniorInputPseudo" placeholder="picho" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="seniorInputPassword">Mot de passe</label>
+                <input type="password" name="seniorInputPassword" class="form-control" id="seniorInputPassword" placeholder="***********" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="seniorInputEmail">Email</label>
+                <input type="email" name="seniorInputEmail" class="form-control" id="seniorInputEmail" placeholder="camille@dupond.ch" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-10">
+                <label for="seniorInputAddress">Adresse</label>
+                <input type="text" name="seniorInputAddress" class="form-control" id="seniorInputAddress" placeholder="Rue du Boulevard 123" required>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="seniorInputFloor">N° de l'étage</label>
+                <input type="number" name="seniorInputFloor" class="form-control" id="seniorInputFloor" placeholder="6" min="1">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="seniorInputCity">Ville</label>
+                <input type="text" name="seniorInputCity" class="form-control" id="seniorInputCity" placeholder="Lausanne" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="seniorInputState">Canton</label>
+                <select id="seniorInputState" name="seniorInputState" class="form-control" required>
+                    <option selected>Choisissez...</option>
+                        <option id="Argovie" value="Argovie">Argovie</option>
+                        <option id="Appenzell Rhodes-Intérieures" value="Appenzell Rhodes-Intérieures">Appenzell Rhodes-Intérieures</option>
+                        <option id="Appenzell Rhodes-Extérieures" value="Appenzell Rhodes-Extérieures">Appenzell Rhodes-Extérieures</option>
+                        <option id="Berne" value="Berne">Berne</option>
+                        <option id="Bâle-Campagne" value="Bâle-Campagne">Bâle-Campagne</option>
+                        <option id="Bâle-Ville" value="Bâle-Ville">Bâle-Ville</option>
+                        <option id="Fribourg" value="Fribourg">Fribourg</option>
+                        <option id="Genève" value="Genève">Genève</option>
+                        <option id="Glaris" value="Glaris">Glaris</option>
+                        <option id="Grisons" value="Grisons">Grisons</option>
+                        <option id="Jura" value="Jura">Jura</option>
+                        <option id="Lucerne" value="Lucerne">Lucerne</option>
+                        <option id="Neuchâtel" value="Neuchâtel">Neuchâtel</option>
+                        <option id="Nidwald" value="Nidwald">Nidwald</option>
+                        <option id="Obwald" value="Obwald">Obwald</option>
+                        <option id="Saint-Gall" value="Saint-Gall">Saint-Gall</option>
+                        <option id="Schaffhouse" value="Schaffhouse">Schaffhouse</option>
+                        <option id="Soleure" value="Soleure">Soleure</option>
+                        <option id="Schwytz" value="Schwytz">Schwytz</option>
+                        <option id="Thurgovie" value="Thurgovie">Thurgovie</option>
+                        <option id="Tessin" value="Tessin">Tessin</option>
+                        <option id="Uri" value="Uri">Uri</option>
+                        <option id="Vaud" value="Vaud">Vaud</option>
+                        <option id="Valais" value="Valais">Valais</option>
+                        <option id="Zoug" value="Zoug">Zoug</option>
+                        <option id="Zurich" value="Zurich">Zurich</option>
+                    </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="seniorInputNPA">NPA</label>
+                <input type="number" name="seniorInputNPA" class="form-control" pattern="[0-9]{4}" id="seniorInputNPA" placeholder="1234" required>
+            </div>
+        </div>
+        <div class="abonnement">
+        </div>
+        <div class="bouton_send">
+            <button type="submit" class="btn btn-primary btn-senior">Valider</button>
+            <button type="reset" class="btn btn-danger">Réinitialiser le formulaire</button>
+        </div>
+    </form>
+</div>
+
+<div class="formJunior hidden">
+    <h1>Inscription junior</h1>
+    <div class="alert-error"></div>
+    <!--la ligne " action="http://www.comem.ch/tools/dump.asp" " sert de test. Il faudra la supprimer-->
+    <form method="POST">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input radioHFA" type="radio" name="juniorInputSex" id="juniorInlineRadio1" value="femme" required>
+            <label class="form-check-label " for="juniorInlineRadio1">Femme</label>
+            <input class="form-check-input radioHFA" type="radio" name="juniorInputSex" id="juniorInlineRadio2" value="homme" required>
+            <label class="form-check-label " for="juniorInlineRadio2">Homme</label>
+            <input class="form-check-input radioHFA" type="radio" name="juniorInputSex" id="juniorInlineRadio3" value="autre" required>
+            <label class="form-check-label" for="juniorInlineRadio3">Autre</label>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="juniorInputFirstName">Prénom</label>
+                <input type="text" class="form-control" id="juniorInputFirstName" name="juniorInputFirstName" placeholder="Camille" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="juniorInputName">Nom</label>
+                <input type="text" class="form-control" id="juniorInputName" name="juniorInputName" placeholder="Dupond" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="juniorInputPseudo">Pseudo</label>
+                <input type="text" class="form-control" id="juniorInputPseudo" name="juniorInputPseudo" placeholder="picho" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="juniorInputPassword">Mot de passe</label>
+                <input type="password" class="form-control" id="juniorInputPassword" name="juniorInputPassword" placeholder="***********" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="juniorInputEmail">Email</label>
+                <input type="email" class="form-control" id="juniorInputEmail" name="juniorInputEmail" placeholder="camille@dupond.ch" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="juniorInputAddress">Adresse</label>
+                <input type="text" class="form-control" id="juniorInputAddress" name="juniorInputAddress" placeholder="Rue du Boulevard 123" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="juniorInputCity">Ville</label>
+                <input type="text" class="form-control" id="juniorInputCity" name="juniorInputCity" placeholder="Lausanne" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="juniorInputState">Canton</label>
+                <select id="juniorInputState" name="juniorInputState" class="form-control" required>
+                    <option selected>Choisissez...</option>
+                        <option id="Argovie" value="Argovie">Argovie</option>
+                        <option id="Appenzell Rhodes-Intérieures" value="Appenzell Rhodes-Intérieures">Appenzell Rhodes-Intérieures</option>
+                        <option id="Appenzell Rhodes-Extérieures" value="Appenzell Rhodes-Extérieures">Appenzell Rhodes-Extérieures</option>
+                        <option id="Berne" value="Berne">Berne</option>
+                        <option id="Bâle-Campagne" value="Bâle-Campagne">Bâle-Campagne</option>
+                        <option id="Bâle-Ville" value="Bâle-Ville">Bâle-Ville</option>
+                        <option id="Fribourg" value="Fribourg">Fribourg</option>
+                        <option id="Genève" value="Genève">Genève</option>
+                        <option id="Glaris" value="Glaris">Glaris</option>
+                        <option id="Grisons" value="Grisons">Grisons</option>
+                        <option id="Jura" value="Jura">Jura</option>
+                        <option id="Lucerne" value="Lucerne">Lucerne</option>
+                        <option id="Neuchâtel" value="Neuchâtel">Neuchâtel</option>
+                        <option id="Nidwald" value="Nidwald">Nidwald</option>
+                        <option id="Obwald" value="Obwald">Obwald</option>
+                        <option id="Saint-Gall" value="Saint-Gall">Saint-Gall</option>
+                        <option id="Schaffhouse" value="Schaffhouse">Schaffhouse</option>
+                        <option id="Soleure" value="Soleure">Soleure</option>
+                        <option id="Schwytz" value="Schwytz">Schwytz</option>
+                        <option id="Thurgovie" value="Thurgovie">Thurgovie</option>
+                        <option id="Tessin" value="Tessin">Tessin</option>
+                        <option id="Uri" value="Uri">Uri</option>
+                        <option id="Vaud" value="Vaud">Vaud</option>
+                        <option id="Valais" value="Valais">Valais</option>
+                        <option id="Zoug" value="Zoug">Zoug</option>
+                        <option id="Zurich" value="Zurich">Zurich</option>
+                    </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="juniorInputNPA">NPA</label>
+                <input type="number" class="form-control" pattern="[0-9]{4}" id="juniorInputNPA" name="juniorInputNPA" placeholder="1234" required>
+            </div>
+        </div>
+        <div class="disponibility">
+            <h2>Disponibilités</h2>
+            <table class="table table-striped table-responsive" name="disponibility">
+                <thead>
+                    <tr>
+                        <th scope="col">Jour</th>
+                        <th scope="col">Matin</th>
+                        <th scope="col">Après-midi</th>
+                        <th scope="col">Soir</th>
+                    </tr>
+                </thead>
+                <tbody id="dispo_table">
+                    <tr>
+                        <th scope="row">Lundi</th>
+                        <td dispo-day="lm" class="disponibility"></td>
+                        <td dispo-day="lam" class="disponibility"></td>
+                        <td dispo-day="ls" class="disponibility"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Mardi</th>
+                        <td dispo-day="mam" class="disponibility"></td>
+                        <td dispo-day="maam" class="disponibility"></td>
+                        <td dispo-day="mas" class="disponibility"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Mercredi</th>
+                        <td dispo-day="mem" class="disponibility"></td>
+                        <td dispo-day="meam" class="disponibility"></td>
+                        <td dispo-day="mes" class="disponibility"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Jeudi</th>
+                        <td dispo-day="jm" class="disponibility"></td>
+                        <td dispo-day="jam" class="disponibility"></td>
+                        <td dispo-day="js" class="disponibility"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Vendredi</th>
+                        <td dispo-day="vm" class="disponibility"></td>
+                        <td dispo-day="vam" class="disponibility"></td>
+                        <td dispo-day="vs" class="disponibility"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Samedi</th>
+                        <td dispo-day="sm" class="disponibility"></td>
+                        <td dispo-day="sam" class="disponibility"></td>
+                        <td dispo-day="ss" class="disponibility"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Dimanche</th>
+                        <td dispo-day="dm" class="disponibility"></td>
+                        <td dispo-day="dam" class="disponibility"></td>
+                        <td dispo-day="ds" class="disponibility"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div name="juniorInputDisponibilities" id="results_dispo">
+        </div>
+        <div class="bouton_send">
+            <button type="submit" class="btn btn-primary btn-junior">Valider</button>
+            <button id="reset_form" type="reset" class="btn btn-danger">Réinitialiser le formulaire</button>
+        </div>
+    </form>
+</div>

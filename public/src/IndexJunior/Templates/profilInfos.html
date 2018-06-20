@@ -1,0 +1,20 @@
+{{#with junior.[0]}}
+<div class="card card-user">
+    <div class="image">
+        <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..." />
+    </div>
+    <div class="content">
+        <div class="author">
+               <img class="avatar border-gray" src="{{user.photo}}" alt="..."/>
+                <h4 class="title">{{user.prenom}} {{user.nom}}<br />
+                <small>{{user.pseudo}}</small>
+                <br/>
+                <small>{{user.email}}</small>
+              </h4>
+        </div>
+        <br/>
+        <p class="description text-center">{{aProposDeMoi}}</p>
+    </div>
+    <hr>
+</div>
+{{/with}}

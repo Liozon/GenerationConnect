@@ -1,0 +1,11 @@
+table.table tbody tr td,
+table.table thead tr th,
+table.table thead {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.available {
+    background-color: #00cd00;
+    color: transparent;
+}

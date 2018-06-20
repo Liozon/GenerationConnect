@@ -1,0 +1,30 @@
+#Ecrivez{
+    margin-left: 15px;
+}
+#button2{
+    margin-left: 15px;
+}
+#connectez{
+
+   margin-left: 25px;
+    
+
+}
+.Login{
+    margin-left:25%;
+    margin-right:25%;
+    text-align: left;
+    border-width:2px;
+    border-style:solid;
+    border-color:black;
+    border-radius:25px;
+    padding: 20px;
+    width: 50%;
+}
+@media (max-width: 768px) {
+    .Login{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}

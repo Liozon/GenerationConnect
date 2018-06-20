@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Profil - Generation Connect</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="assets/css/animate.min.css" rel="stylesheet" />
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
+
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="assets/css/demo.css" rel="stylesheet" />
+
+    <!-- Custom CSS     -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
+    <!-- Jquery     -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Custom JS     -->
+    <script src="assets/js/script.js"></script>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="sidebar" data-color="azure">
+
+            <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
+
+
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="" class="simple-text">
+                    Generation Connect
+                </a>
+                </div>
+
+                <ul class="nav">
+                    <li>
+                        <a href="index.html">
+                        <i class="pe-7s-home"></i>
+                        <p>Dashboard</p>
+                    </a>
+                    </li>
+                    <li class="active">
+                        <a href="profil.html">
+                        <i class="pe-7s-user"></i>
+                        <p>Profil</p>
+                    </a>
+                    </li>
+                    <li>
+                        <a href="demandes.html">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>Demandes</p>
+                    </a>
+                    </li>
+                    <li>
+                        <a href="rdv.html">
+                        <i class="pe-7s-map-marker"></i>
+                        <p>Rendez-vous</p>
+                    </a>
+                    </li>
+                    <li>
+                        <a href="rapports.html">
+                        <i class="pe-7s-note2"></i>
+                        <p>Rapports</p>
+                    </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-panel">
+            <nav class="navbar navbar-default navbar-fixed">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Profil</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="">
+                                    <p>Mon compte</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <p>Se déconnecter</p>
+                                </a>
+                            </li>
+                            <li class="separator hidden-lg"></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Mettre à jour le profil</h4>
+                                </div>
+                                <div class="content">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Pseudo</label>
+                                                    <input type="text" class="form-control" name="juniorInputPseudo" placeholder="Username" value="michael23">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Adresse email</label>
+                                                    <input name="juniorInputEmail" type="email" class="form-control" placeholder="mike@andrew.com" value="mike@andrew.com">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Prénom</label>
+                                                    <input type="text" name="juniorInputFirstName" class="form-control" placeholder="Company" value="Mike">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Nom</label>
+                                                    <input type="text" name="juniorInputName" class="form-control" placeholder="Last Name" value="Andrew">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Adresse</label>
+                                                    <input type="text" name="juniorInputAddress" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Ville</label>
+                                                    <input type="text" name="juniorInputCity" class="form-control" placeholder="Lausanne" value="Lausanne">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Canton</label>
+                                                    <select id="juniorInputState" name="juniorInputState" class="form-control" required>
+                                                        <option selected>Choisissez...</option>
+                                                        <option id="ag" value="ag">Argovie</option>
+                                                        <option id="ai" value="ai">Appenzell Rhodes-Intérieures</option>
+                                                        <option id="ar" value="ar">Appenzell Rhodes-Extérieures</option>
+                                                        <option id="be" value="be">Berne</option>
+                                                        <option id="bl" value="bl">Bâle-Campagne</option>
+                                                        <option id="bs" value="bs">Bâle-Ville</option>
+                                                        <option id="fr" value="fr">Fribourg</option>
+                                                        <option id="ge" value="ge">Genève</option>
+                                                        <option id="gl" value="gl">Glaris</option>
+                                                        <option id="gr" value="gr">Grisons</option>
+                                                        <option id="ju" value="ju">Jura</option>
+                                                        <option id="lu" value="lu">Lucerne</option>
+                                                        <option id="ne" value="ne">Neuchâtel</option>
+                                                        <option id="nw" value="nw">Nidwald</option>
+                                                        <option id="ow" value="ow">Obwald</option>
+                                                        <option id="sg" value="sg">Saint-Gall</option>
+                                                        <option id="sh" value="sh">Schaffhouse</option>
+                                                        <option id="so" value="so">Soleure</option>
+                                                        <option id="sz" value="sz">Schwytz</option>
+                                                        <option id="tg" value="tg">Thurgovie</option>
+                                                        <option id="ti" value="ti">Tessin</option>
+                                                        <option id="ur" value="ur">Uri</option>
+                                                        <option id="vd" value="vd">Vaud</option>
+                                                        <option id="vs" value="vs">Valais</option>
+                                                        <option id="zg" value="zg">Zoug</option>
+                                                        <option id="zh" value="zh">Zurich</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>NPA</label>
+                                                    <input type="number" id="juniorInputNPA" name="juniorInputNPA" class="form-control" pattern="[0-9]{4}" placeholder="1324" value="1324">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Téléphone (fixe ou mobile)</label>
+                                                    <input type="number" name="juniorInputTel1" class="form-control" placeholder="0212342345" value="0212342345" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Téléphone supplémentaire</label>
+                                                    <input type="number" name="juniorInputTel2" class="form-control" placeholder="0212342345" value="0212342345">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>À propos de moi</label>
+                                                    <textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-info btn-fill pull-right">Mettre à jour le profil</button>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Coordonnées bancaire</h4>
+                                </div>
+                                <div class="content">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Nom de la banque</label>
+                                                    <input type="text" class="form-control" name="juniorInputBanq" placeholder="Banque Cantonale Consulting" value="Banque Cantonale Consulting" required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>IBAN</label>
+                                                    <input type="text" name="juniorInputIBAN" class="form-control" placeholder="CH123456789101112131415" value="CH123456789101112131415" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-info btn-fill pull-right">Mettre à jour</button>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Disponibilités</h4>
+                                </div>
+                                <div class="content">
+                                    <div></div>
+                                    <table class="table table-hover table-striped table-responsive" name="disponibility">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Jour</th>
+                                                <th scope="col">Matin</th>
+                                                <th scope="col">Après-midi</th>
+                                                <th scope="col">Soir</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="dispo_table">
+                                            <tr>
+                                                <th scope="row">Lundi</th>
+                                                <td dispo-day="lm" class="disponibility"></td>
+                                                <td dispo-day="lam" class="disponibility"></td>
+                                                <td dispo-day="ls" class="disponibility"></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Mardi</th>
+                                                <td dispo-day="mam" class="disponibility"></td>
+                                                <td dispo-day="maam" class="disponibility"></td>
+                                                <td dispo-day="mas" class="disponibility"></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Mercredi</th>
+                                                <td dispo-day="mem" class="disponibility"></td>
+                                                <td dispo-day="meam" class="disponibility"></td>
+                                                <td dispo-day="mes" class="disponibility"></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Jeudi</th>
+                                                <td dispo-day="jm" class="disponibility"></td>
+                                                <td dispo-day="jam" class="disponibility"></td>
+                                                <td dispo-day="js" class="disponibility"></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Vendredi</th>
+                                                <td dispo-day="vm" class="disponibility"></td>
+                                                <td dispo-day="vam" class="disponibility"></td>
+                                                <td dispo-day="vs" class="disponibility"></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Samedi</th>
+                                                <td dispo-day="sm" class="disponibility"></td>
+                                                <td dispo-day="sam" class="disponibility"></td>
+                                                <td dispo-day="ss" class="disponibility"></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Dimanche</th>
+                                                <td dispo-day="dm" class="disponibility"></td>
+                                                <td dispo-day="dam" class="disponibility"></td>
+                                                <td dispo-day="ds" class="disponibility"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <button class="btn btn-info btn-fill pull-right">Enregistrer</button>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!--   Core JS Files   -->
+<script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!--  Charts Plugin -->
+<script src="assets/js/chartist.min.js"></script>
+
+<!--  Notifications Plugin    -->
+<script src="assets/js/bootstrap-notify.js"></script>
+
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+
+</html>

@@ -1,0 +1,121 @@
+<div class="main-panel">
+    <nav class="navbar navbar-default navbar-fixed">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                <a class="navbar-brand" href="#">Rendez-vous à valider</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#disconnect">
+                           <p><i class="pe-7s-unlock"></i>
+                            Se déconnecter</p>
+                        </a>
+                    </li>
+                    <li class="separator hidden-lg"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Rendez-vous à valider</h4>
+                        </div>
+                        <div class="content table-responsive">
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <th>Date</th>
+                                    <th>Heure</th>
+                                    <th>Demandeur</th>
+                                    <th>Prestataire</th>
+                                    <th>Localité</th>
+                                    <th>Domaine</th>
+                                    <th>Action</th>
+                                </thead>
+                                <tbody>
+                                   {{#each collectionDemandes}}
+                                    {{#ifEquals statut "accepté"}}
+                                    <tr>
+                                        <td class="avecmaj">{{dateConvert date}}</td>
+                                        <td class="avecmaj">{{heure}}</td>
+                                        <td class="avecmaj">{{senior.user.prenom}} {{senior.user.nom}}</td>
+                                        <td class="avecmaj">{{junior.user.prenom}} {{junior.user.nom}}</td>
+                                        <td class="avecmaj">{{senior.user.ville}}</td>
+                                        <td class="avecmaj">
+                                        <ul>
+                                            {{#each competences}}
+                                                <li>{{nom}}, {{categorie}}</li>
+                                            {{/each}}
+                                            </ul>
+                                        </td>
+                                        <td><button class="btn btn-success btn-fill validerrdv" data-id="{{id}}">Valider</button>
+                                            <button class="btn btn-danger btn-fill">Refuser</button>
+                                        </td>
+                                    </tr>
+                                    {{/ifEquals}}
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Historique</h4>
+                        </div>
+                        <div class="content table-responsive">
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <th>Date</th>
+                                    <th>Heure</th>
+                                    <th>Demandeur</th>
+                                    <th>Prestataire</th>
+                                    <th>Localité</th>
+                                    <th>Domaine</th>
+                                    <th>Validé le</th>
+                                </thead>
+                                <tbody>
+                                   {{#each collectionDemandes}}
+                                    {{#ifEquals statut "validé"}}
+                                    <tr>
+                                        <td class="avecmaj">{{dateConvert date}}</td>
+                                        <td class="avecmaj">{{heure}}</td>
+                                        <td class="avecmaj">{{senior.user.prenom}} {{senior.user.nom}}</td>
+                                        <td class="avecmaj">{{junior.user.prenom}} {{junior.user.nom}}</td>
+                                        <td class="avecmaj">{{senior.user.ville}}</td>
+                                        <td class="avecmaj">
+                                        <ul>
+                                            {{#each competences}}
+                                                <li>{{nom}}, {{categorie}}</li>
+                                            {{/each}}
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            {{dateConvert updated_at}}
+                                        </td>
+                                    </tr>
+                                    {{/ifEquals}}
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

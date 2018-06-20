@@ -1,0 +1,47 @@
+
+
+        <div class="modal-content">
+            <div class="container-fluid">
+               
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="header modal-header">
+                           
+                   <a class="close close-pop" href="#">&times;</a>
+                            <h4 class="title">Juniors disponibles ...</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {{#each collectionJuniors}}
+                <div class="col-md-6">
+                    <div class="card card-user">
+                        <div class="image">
+                            <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..." />
+                        </div>
+                        <div class="content">
+                            <div class="author">
+                                <img class="avatar border-gray" src="{{user.photo}}" alt="..." />
+                                <h4 class="title" id="safa_titre">{{user.prenom}} {{user.nom}}<br/>
+                                    <small>{{user.pseudo}}</small>
+                                    <br/>
+                                    <small>{{user.email}}</small>
+                                </h4>
+                            </div>
+                            <br/>
+                            <p class="description text-center">{{aProposDeMoi}}
+                            </p>
+                            <p class="btn-profiljeune">
+                                <button type="button" class="btn btn-primary voirprof close-pop" data-toggle="modal" data-target="#exampleModal" data-id="{{id}}">
+                                    Voir le profil complet
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+  
+

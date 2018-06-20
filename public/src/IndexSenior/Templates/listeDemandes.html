@@ -1,0 +1,32 @@
+<div class="content table-responsive">
+    <table class="table table-hover table-striped">
+        <thead>
+        <th>Date</th>
+        <th>Heure</th>
+        <th>Durée</th>
+        <th>Titre</th>
+        <th>Adresse</th>
+        <th>Localité</th>
+        <th>Domaine(s)</th>
+        <th>Actions</th>
+        </thead>
+        <tbody>
+        {{#each demandes}}
+        {{#ifEquals statut "validé"}}
+        <tr>
+            <td>{{date}}</td>
+            <td>{{heure}}</td>
+            <td>{{duree}}</td>
+            <td>{{titre}}</td>
+            <td>{{senior.user.adresse}}</td>
+            <td>{{senior.user.ville}}</td>
+            <td>{{#each competences}}
+                {{nom}}, {{categorie}}
+                {{/each}}</td>
+            <td>
+                <button class="btn btn-danger btn-fill demande-reject btn_annuler" data-id="{{id}}">Annuler</button>
+            </td>
+        </tr>
+        {{/ifEquals}}
+        {{/each}}
+        </tbody>

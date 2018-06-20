@@ -1,0 +1,195 @@
+<div class="main-panel">
+    <nav class="navbar navbar-default navbar-fixed">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                <a class="navbar-brand" href="#">Demandes à accuser réception</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#disconnect">
+                            <p><i class="pe-7s-unlock"></i>
+                           Se déconnecter</p>
+                        </a>
+                    </li>
+                    <li class="separator hidden-lg"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Demandes à traiter</h4>
+                        </div>
+                        <div class="content table-responsive">
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <th>Date</th>
+                                    <th>Heure</th>
+                                    <th>Durée</th>
+                                    <th>Demandeur</th>
+                                    <th>Adresse</th>
+                                    <th>Localité</th>
+                                    <th>Domaine</th>
+                                    <th>Actions</th>
+                                </thead>
+                                <tbody>
+                                    {{#each collectionDemandes}}
+                                    {{#ifEquals statut "envoyé"}}
+                                    <tr>
+                                        <td>{{dateConvert date}}</td>
+                                        <td>{{heure}}</td>
+                                        <td>{{duree}}</td>
+                                        <td class="avecmaj">{{senior.user.prenom}} {{senior.user.nom}}</td>
+                                        <td class="avecmaj">{{senior.user.ville}}, {{senior.user.canton}}</td>
+                                        <td class="avecmaj">
+                                            {{senior.user.adresse}}
+                                            {{#if senior.user.etage}}
+                                            , {{senior.etage}}
+                                            {{/if}}
+                                        </td>
+                                        <td class="avecmaj">             
+                                           
+                                            {{#each competences}}
+                                                {{nom}}, {{categorie}}
+                                            {{/each}}
+                                            
+                                        </td>
+                                        <td><button class="btn btn-success btn-fill choisirjunior" data-id="{{id}}">Choisir junior</button>
+                                            <button class="btn btn-danger btn-fill">Refuser</button>
+                                        </td>
+                                    </tr>
+                                    {{/ifEquals}}
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Historique</h4>
+                        </div>
+                        <div class="content table-responsive">
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <th>Date</th>
+                                    <th>Heure</th>
+                                    <th>Durée</th>
+                                    <th>Demandeur</th>
+                                    <th>Prestataire</th>
+                                    <th>Adresse</th>
+                                    <th>Localité</th>
+                                    <th>Domaine</th>
+                                    <th>Date envoi au junior</th>
+                                </thead>
+                                <tbody>
+                                     {{#each collectionDemandes}}
+                                    {{#ifEquals statut "reçu"}}
+                                    <tr>
+                                        <td>{{dateConvert date}}</td>
+                                        <td>{{heure}}</td>
+                                        <td>{{duree}}</td>
+                                        <td class="avecmaj">{{senior.user.prenom}} {{senior.user.nom}}</td>
+                                        <td class="avecmaj">{{junior.user.prenom}} {{junior.user.nom}}</td>
+                                        <td class="avecmaj">{{senior.user.ville}}, {{senior.user.canton}}</td>
+                                        <td class="avecmaj">
+                                            {{senior.user.adresse}}
+                                            {{#if senior.user.etage}}
+                                            , {{senior.etage}}
+                                            {{/if}}
+                                        </td>
+                                        <td class="avecmaj">             
+                                           
+                                            {{#each competences}}
+                                                {{nom}}, {{categorie}}
+                                            {{/each}}
+                                            
+                                        </td>
+                                        <td>
+                                            {{DateConvert updated_at}}
+                                        </td>
+                                    </tr>
+                                    {{/ifEquals}}
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="popup1" class="overlay hidden">
+    <div class="popup" id="popuppu">
+        <a class="close close-pop" href="#">&times;</a>
+    </div>
+
+</div>
+
+<div id="popup2" class="overlay hidden">
+    <div class="popup2">
+        <a class="close close-pop fermerprof" href="#">&times;</a>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">Profil de </h4>
+                <button type="button" class="close fermerprof" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="false">&times;</span>
+                                        </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="well well-sm">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4">
+                                        <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive imgjun" />
+                                    </div>
+                                    <div class="col-sm-6 col-md-8">
+                                        <h4 class="nomjun"></h4>
+                                        <h4 class="villejun"></h4>
+                                        <p class="adressejun">
+                                            <span class="datenaissjun"></span>
+
+                                        </p>
+                                        <h4>Description</h4>
+                                        <p class="aboutme"></p>
+                                        <!-- Split button -->
+                                        <!--<div class="btn-group">
+                                            <h4>Compétences</h4>
+                                            <ul class="menu_comp list-group">
+                                                 
+                                            </ul>
+                                        </div>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary choisirjun" data-dismiss="modal" demande-id="{{idDemande}}">Choisir</button>
+                <button type="button" class="btn btn-secondary fermerprof" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>

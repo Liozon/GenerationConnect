@@ -1,0 +1,235 @@
+<div class="main-panel">
+    <nav class="navbar navbar-default navbar-fixed">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                <a class="navbar-brand" href="#">Comptes juniors</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#disconnect">
+                            <p><i class="pe-7s-unlock"></i> Se déconnecter</p>
+                        </a>
+                    </li>
+                    <li class="separator hidden-lg"></li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+    <div class="card card-senior">
+        <div class="header">
+            <h4 class="title">Juniors en fonction</h4>
+        </div>
+        <div class="row">
+            <div class="content table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Canton</th>
+                        <th>Localité</th>
+                        <th>Domaines de compétences</th>
+                        <th>Actions</th>
+                    </thead>
+                    <tbody>
+                        {{#each collectionJuniors}} {{#if estValide}}
+                        <tr>
+                            <td class="nom avecmaj">{{user.nom}}</td>
+                            <td class="prenom avecmaj">{{user.prenom}}</td>
+                            <td class="canton avecmaj">{{user.canton}}</td>
+                            <td class="localite avecmaj">{{user.ville}}</td>
+                            <td class="domaines avec maj">{{competences.[0].categorie}} - {{competences.[0].nom}}</td>
+                            <td>
+                                <button class="btn btn-success btn-fill modifier-affiche" id="{{id}}" data-toggle="modal" data-target="#exampleModal">Modifier profil</button>
+                            </td>
+                        </tr>
+                        {{/if}} {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+        <div class="card card-senior">
+            <div class="header">
+                <h4 class="title">Juniors à valider</h4>
+            </div>
+            <div class="row">
+                <div class="content table-responsive">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Canton</th>
+                            <th>Localité</th>
+                            <th>Domaines de compétences</th>
+                            <th>Actions</th>
+                        </thead>
+                        <tbody>
+                            {{#each collectionJuniors}} {{#ifEquals estValide 0}}
+                            <tr>
+                                <td class="nom avecmaj">{{user.nom}}</td>
+                                <td class="prenom avecmaj">{{user.prenom}}</td>
+                                <td class="canton avecmaj">{{user.canton}}</td>
+                                <td class="localite avecmaj">{{user.ville}}</td>
+                                <td class="domaines avec maj">{{competences.[0].categorie}} - {{competences.[0].nom}}</td>
+                                <td>
+                                    <button class="btn btn-primary btn-fill modifier-affiche" id="{{id}}" data-toggle="modal" data-target="#exampleModal">Modifier profil</button>
+                                    <button class="btn btn-success btn-fill modifier-affiche" id="{{id}}">Valider profil</button>
+                                </td>
+                            </tr>
+                            {{/ifEquals}} {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="exampleModalLabel">Modifier profil</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="content">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Pseudo</label>
+                                                <input type="text" class="form-control" name="juniorInputPseudo" placeholder="Username" value="michael23" id="modifPseudo">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Adresse email</label>
+                                                <input name="juniorInputEmail" type="email" class="form-control" placeholder="mike@andrew.com" value="mike@andrew.com" id="modifEmail">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Prénom</label>
+                                                <input type="text" name="juniorInputFirstName" class="form-control" placeholder="Company" value="Mike" id="modifPrenom">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Nom</label>
+                                                <input type="text" name="juniorInputName" class="form-control" placeholder="Last Name" value="Andrew" id="modifNom">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <div class="form-group">
+                                                <label>Adresse</label>
+                                                <input type="text" name="juniorInputAddress" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" id="modifAdresse">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Etage</label>
+                                                <input type="text" name="juniorInputFloor" class="form-control" placeholder="Home Address" value="3" id="modifFloor">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Ville</label>
+                                                <input type="text" name="juniorInputCity" class="form-control" placeholder="Lausanne" value="Lausanne" id="modifCity">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Canton</label>
+                                                <select id="juniorInputState" name="juniorInputState" class="form-control" required id="modifCanton">
+                                                        <option selected>Choisissez...</option>
+                        <option id="Argovie" value="Argovie">Argovie</option>
+                        <option id="Appenzell Rhodes-Intérieures" value="Appenzell Rhodes-Intérieures">Appenzell Rhodes-Intérieures</option>
+                        <option id="Appenzell Rhodes-Extérieures" value="Appenzell Rhodes-Extérieures">Appenzell Rhodes-Extérieures</option>
+                        <option id="Berne" value="Berne">Berne</option>
+                        <option id="Bâle-Campagne" value="Bâle-Campagne">Bâle-Campagne</option>
+                        <option id="Bâle-Ville" value="Bâle-Ville">Bâle-Ville</option>
+                        <option id="Fribourg" value="Fribourg">Fribourg</option>
+                        <option id="Genève" value="Genève">Genève</option>
+                        <option id="Glaris" value="Glaris">Glaris</option>
+                        <option id="Grisons" value="Grisons">Grisons</option>
+                        <option id="Jura" value="Jura">Jura</option>
+                        <option id="Lucerne" value="Lucerne">Lucerne</option>
+                        <option id="Neuchâtel" value="Neuchâtel">Neuchâtel</option>
+                        <option id="Nidwald" value="Nidwald">Nidwald</option>
+                        <option id="Obwald" value="Obwald">Obwald</option>
+                        <option id="Saint-Gall" value="Saint-Gall">Saint-Gall</option>
+                        <option id="Schaffhouse" value="Schaffhouse">Schaffhouse</option>
+                        <option id="Soleure" value="Soleure">Soleure</option>
+                        <option id="Schwytz" value="Schwytz">Schwytz</option>
+                        <option id="Thurgovie" value="Thurgovie">Thurgovie</option>
+                        <option id="Tessin" value="Tessin">Tessin</option>
+                        <option id="Uri" value="Uri">Uri</option>
+                        <option id="Vaud" value="Vaud">Vaud</option>
+                        <option id="Valais" value="Valais">Valais</option>
+                        <option id="Zoug" value="Zoug">Zoug</option>
+                        <option id="Zurich" value="Zurich">Zurich</option>
+                    </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>NPA</label>
+                                                <input type="number" id="juniorInputNPA" name="juniorInputNPA" class="form-control" pattern="[0-9]{4}" placeholder="1324" value="1324">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Téléphone (fixe ou mobile)</label>
+                                                <input type="number" name="juniorInputTel1" class="form-control" placeholder="0212342345" value="0212342345" required id="modifTel1">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Téléphone supplémentaire</label>
+                                                <input type="number" name="juniorInputTel2" class="form-control" placeholder="0212342345" value="0212342345" id="modifTel2">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>À propos de moi</label>
+                                                <textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike" id="modifAboutme">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-fill pull-right" data-dismiss="modal">Fermer</button>
+                            <button type="submit" class="btn btn-primary btn-fill pull-right savechange">Sauvegarder</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

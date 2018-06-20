@@ -1,0 +1,61 @@
+<div class="content">
+    <form method="post">
+        <table class="table table-hover table-striped table-responsive disponibility" name="disponibility">
+            <thead>
+                <tr>
+                    <th scope="col">Jour</th>
+                    <th scope="col">Matin</th>
+                    <th scope="col">Après-midi</th>
+                    <th scope="col">Soir</th>
+                </tr>
+            </thead>
+            <tbody id="dispo_table">
+                <tr>
+                    <th scope="row">Lundi</th>
+                    <td dispo-day="lm" class="disponibility"></td>
+                    <td dispo-day="lam" class="disponibility"></td>
+                    <td dispo-day="ls" class="disponibility"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Mardi</th>
+                    <td dispo-day="mam" class="disponibility"></td>
+                    <td dispo-day="maam" class="disponibility"></td>
+                    <td dispo-day="mas" class="disponibility"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Mercredi</th>
+                    <td dispo-day="mem" class="disponibility"></td>
+                    <td dispo-day="meam" class="disponibility"></td>
+                    <td dispo-day="mes" class="disponibility"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Jeudi</th>
+                    <td dispo-day="jm" class="disponibility"></td>
+                    <td dispo-day="jam" class="disponibility"></td>
+                    <td dispo-day="js" class="disponibility"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Vendredi</th>
+                    <td dispo-day="vm" class="disponibility"></td>
+                    <td dispo-day="vam" class="disponibility"></td>
+                    <td dispo-day="vs" class="disponibility"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Samedi</th>
+                    <td dispo-day="sm" class="disponibility"></td>
+                    <td dispo-day="sam" class="disponibility"></td>
+                    <td dispo-day="ss" class="disponibility"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Dimanche</th>
+                    <td dispo-day="dm" class="disponibility"></td>
+                    <td dispo-day="dam" class="disponibility"></td>
+                    <td dispo-day="ds" class="disponibility"></td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-info btn-fill pull-right update-profile">Mettre à jour</button>
+        <div id="results_dispo" class="hidden"></div>
+    </form>
+    <div class="clearfix"></div>
+</div>

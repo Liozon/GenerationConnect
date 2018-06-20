@@ -1,0 +1,26 @@
+<div class="content table-responsive">
+    <table class="table table-hover table-striped">
+        <thead>
+            <th>Date</th>
+            <th>Heure</th>
+            <th>Demande</th>
+            <th>Ville</th>
+            <th>Domaine(s)</th>
+        </thead>
+        <tbody>
+            {{#each demandes}} {{#ifEquals statut "validé"}}
+            <tr>
+                <td>{{dateConvert date}}</td>
+                <td>{{heure}}</td>
+                <td>{{titre}}</td>
+                <td>{{senior.user.ville}}</td>
+                <td>{{competences.[0].categorie}} - {{competences.[0].nom}}</td>
+            </tr>
+            {{/ifEquals}} {{/each}}
+        </tbody>
+    </table>
+    <a href="#rdv">
+    <button class="btn btn-info btn-fill pull-center">Voir tous mes rendez-vous</button>
+    </a>
+    <div class="clearfix"></div>
+</div>

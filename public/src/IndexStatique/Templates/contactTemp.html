@@ -1,0 +1,63 @@
+<div class="Formulaire">
+    <h1 id="Ecrivez">Ecrivez-nous !</h1>
+    <form action="post" action="http://www.comem.ch/tools/dump.asp">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="NomComp">Votre nom</label>
+                <input type="text" class="form-control" id="nomComp" placeholder="Nom complet" required name="nomComp" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="numberTel">Téléphone</label>
+                <input type="number" class="form-control" id="numberTel" placeholder="079/1234567" name="numberTel">
+            </div>
+            <div class="form-group">
+                <div class="form-group col-md-6">
+                    <label for="messageCont">Votre message</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1 messageCont" rows="13" placeholder="J'ai une question concernant..." name="messageCont" required></textarea>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="emailCont">Email</label>
+                <input type="email" class="form-control" id="emailCont" placeholder="email@domaine.ch" required name="emailCont" required>
+            </div>
+        </div>
+        <div class="center_con">
+            <button id="button2" type="submit" class="btn btn-primary" class="btn-envoyer">Envoyer</button>
+        </div>
+    </form>
+</div>
+
+
+<div id="googleMap" style="width:100%;height:400px;"></div>
+<div class="adresseEnt center">
+    <p><strong>Generation Connect</strong></p>
+    <p>
+        Rue Langallerie 1<br/> Lausanne
+    </p>
+    <p>
+        <a href="tel:0222221111">Tél. 022 222 11 11</a><br/>
+        <a href="mailto: adresse@generationconnect.ch">adresse@generationconnect.ch</a>
+    </p>
+</div>
+
+<script>
+    function myMap() {
+        var consulting = {
+            lat: 46.5205988,
+            lng: 6.6374413
+        };
+        var map = new google.maps.Map(document.getElementById('googleMap'), {
+            zoom: 18,
+            center: consulting
+        });
+        var marker = new google.maps.Marker({
+            position: consulting,
+            map: map
+        });
+    }
+</script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8dslNv01-WVM1_2AwZAXvqLrawGz55oY&callback=myMap" async defer></script>
