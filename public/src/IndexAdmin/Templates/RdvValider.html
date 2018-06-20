@@ -61,7 +61,7 @@
                                             </ul>
                                         </td>
                                         <td><button class="btn btn-success btn-fill validerrdv" data-id="{{id}}">Valider</button>
-                                            <button class="btn btn-danger btn-fill">Refuser</button>
+                                            <button class="btn btn-danger btn-fill btn-refuser" data-id="{{id}}">Refuser</button>
                                         </td>
                                     </tr>
                                     {{/ifEquals}}
@@ -86,6 +86,7 @@
                                     <th>Prestataire</th>
                                     <th>Localité</th>
                                     <th>Domaine</th>
+                                    <th>Statut</th>
                                     <th>Validé le</th>
                                 </thead>
                                 <tbody>
@@ -104,10 +105,32 @@
                                             {{/each}}
                                             </ul>
                                         </td>
+                                        <td class="avecmaj">{{statut}}</td>
                                         <td>
                                             {{dateConvert updated_at}}
                                         </td>
                                     </tr>
+                                    {{else}}
+                                    {{#ifEquals statut "refusé"}}
+                                    <tr>
+                                        <td class="avecmaj">{{dateConvert date}}</td>
+                                        <td class="avecmaj">{{heure}}</td>
+                                        <td class="avecmaj">{{senior.user.prenom}} {{senior.user.nom}}</td>
+                                        <td class="avecmaj">{{junior.user.prenom}} {{junior.user.nom}}</td>
+                                        <td class="avecmaj">{{senior.user.ville}}</td>
+                                        <td class="avecmaj">
+                                        <ul>
+                                            {{#each competences}}
+                                                <li>{{nom}}, {{categorie}}</li>
+                                            {{/each}}
+                                            </ul>
+                                        </td>
+                                        <td class="avecmaj">{{statut}}</td>
+                                        <td>
+                                            {{dateConvert updated_at}}
+                                        </td>
+                                    </tr>
+                                    {{/ifEquals}}
                                     {{/ifEquals}}
                                     {{/each}}
                                 </tbody>

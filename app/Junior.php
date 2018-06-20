@@ -43,13 +43,16 @@ class Junior extends Model
         'estValide' => 'required|boolean',
         'banque' => 'nullable|string',
         'numeroCompteBancaire' => 'nullable|string',
-        'aProposDeMoi' => 'nullable|text'
+        'aProposDeMoi' => 'nullable|string'
+
     ];
 
     public static function getValidation(Array $inputs)
     {
 
+
         $validator = Validator::make($inputs, static::$rules);
+
         //test en plus des rules
         $validator->after(function ($validator) use($inputs) {
 

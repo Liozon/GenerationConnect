@@ -10,7 +10,6 @@ export default Backbone.View.extend({
         let inputEmail = this.$el.find("#emailCont");
         let inputMessage = this.$el.find("#messageCont");
         let nom = inputNomComp.val();
-        console.log(nom);
         let noTel = inputNoTel.val();
         let email = inputEmail.val();
         let message = inputMessage.val();

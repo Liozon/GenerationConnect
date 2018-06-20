@@ -31,14 +31,14 @@ class User extends Authenticatable
         'nom' => 'required|alpha',
         'password' => 'required|string',
         'prenom' => 'required|alpha',
-        'email' => 'required|email',
+        'email' => 'nullable|email',
         'sexe' => 'required|in:"femme","homme","autre"',
         'ville' => 'required|string',
         'codePostal' => 'required|numeric|digits:4',
         'adresse' => 'required|string',
         'canton' => 'required|string',
-        'telephone' => 'required|numeric',
-        'telephone_2' => 'nullable|numeric',
+        'telephone' => 'required|numeric|digits:10',
+        'telephone_2' => 'nullable|numeric|digits:10',
         'photo' => 'required|string',
     ];
 

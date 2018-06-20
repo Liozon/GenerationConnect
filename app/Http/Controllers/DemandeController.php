@@ -6,6 +6,7 @@ use App\Demande;
 use App\Disponibilite;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Competence;
 use Illuminate\Support\Facades\DB;
 
 class DemandeController extends Controller
@@ -30,30 +31,30 @@ class DemandeController extends Controller
     {
         // Récupération des inputs pertinents
         if (!$request->has([
-            'demandeJuniorID',
-            'demandeSeniorID',
-            'demandeEmployeID',
-            'demandeDescription',
-            'demandeDate',
-            'demandeHeure',
-            'demandeDuree',
-            'demandeTitre',
-            'demandeCompetenceID'
+            'senior_id',
+            'statut',
+            'description',
+            'date',
+            'heure',
+            'duree',
+            'titre',
+            'competence'
         ])
         ) {
             return response()->json(['error' => 'empty request'], 400);
         }
 
-        $valuesDemande['junior_id'] = $request->demandeJuniorID;
-        $valuesDemande['senior_id'] = $request->demandeSeniorID;
-        $valuesDemande['employe_id'] = $request->demandeEmployeID;
-        $valuesDemande['description'] = $request->demandeDescription;
-        $valuesDemande['titre'] = $request->demandeTitre;
-        $valuesDemande['date'] = $request->demandeDate;
-        $valuesDemande['heure'] = $request->demandeHeure;
-        $valuesDemande['duree'] = $request->demandeDuree;
+        $valuesDemande['senior_id'] = $request->senior_id;
+        $valuesDemande['employe_id'] = 1;
+        $valuesDemande['junior_id'] = null;
+        $valuesDemande['description'] = $request->description;
+        $valuesDemande['titre'] = $request->titre;
+        $valuesDemande['date'] = $request->date;
+        $valuesDemande['heure'] = $request->heure;
+        $valuesDemande['duree'] = $request->duree;
         $valuesDemande['statut'] = "envoyé";
-        $competenceID = $request->demandeCompetenceID;
+
+        $competenceID = $request->competence;
 
         DB::beginTransaction();
         try {
@@ -66,12 +67,14 @@ class DemandeController extends Controller
 
             $newDemande = Demande::saveOne($valuesDemande);
 
+            $newDemande->competences()->save(Competence::find($competenceID));
+
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
             return response()->json(['error',$e->getMessage()]);
         }
-        return $newDemande;
+        return response()->json('correct');
     }
 
     /**
@@ -101,11 +104,10 @@ class DemandeController extends Controller
             'employe_id',
             'description',
             'date',
-            '',
-            'demandeDuree',
-            'demandeTitre',
-            'demandeCompetenceID',
-            'demandeStatut'
+            'duree',
+            'heure',
+            'titre',
+            'statut'
         ])
         ) {
             return response()->json(['error' => 'empty request'], 400);
@@ -118,30 +120,31 @@ class DemandeController extends Controller
             return response()->json(['error' => 'demande introuvable']);
         }
 
-        $valuesDemande['junior_id'] = $request->demandeJuniorID;
-        $valuesDemande['senior_id'] = $request->demandeSeniorID;
-        $valuesDemande['employe_id'] = $request->demandeEmployeID;
-        $valuesDemande['description'] = $request->demandeDescription;
-        $valuesDemande['titre'] = $request->demandeTitre;
-        $valuesDemande['date'] = $request->demandeDate;
-        $valuesDemande['heure'] = $request->demandeHeure;
-        $valuesDemande['duree'] = $request->demandeDuree;
-        $valuesDemande['statut'] = $request->demandeStatut;
+        $valuesDemande['junior_id'] = $request->junior_id;
+        $valuesDemande['senior_id'] = $request->senior_id;
+        $valuesDemande['employe_id'] = $request->employe_id;
+        $valuesDemande['description'] = $request->description;
+        $valuesDemande['titre'] = $request->titre;
+        $valuesDemande['date'] = $request->date;
+        $valuesDemande['heure'] = $request->heure;
+        $valuesDemande['duree'] = $request->duree;
+        $valuesDemande['statut'] = $request->statut;
 
-        $disponibilitesATester = Disponibilite::where('junior_id',$valuesDemande['junior_id'])->get();
-
-        // foreach($disponibilitesATester as $disponibilite){
-        //     return response()->json(date('l',$disponibilite->date));
-        // }
-
-        if(!$disponibilitesATester){
-            return response()->json(['error' => 'le junior est pas dispo pour cette date']);
-        }
+        $valuesCompetences['competence_id'] =$request->competence_id;
+//        $disponibilitesATester = Disponibilite::where('junior_id',$valuesDemande['junior_id'])->get();
+//
+//        // foreach($disponibilitesATester as $disponibilite){
+//        //     return response()->json(date('l',$disponibilite->date));
+//        // }
+//
+//        if(!$disponibilitesATester){
+//            return response()->json(['error' => 'le junior est pas dispo pour cette date']);
+//        }
 
         DB::beginTransaction();
         try {
 
-            $valuesDemande['update'] = 1;
+            $valuesDemande['update'] = true;
 
 
             $validate = Demande::getValidation($valuesDemande);
@@ -149,7 +152,10 @@ class DemandeController extends Controller
                 return $validate->errors();
             }
 
+            unset($valuesDemande['update']);
+
             $demande->update($valuesDemande);
+
 
             DB::commit();
         } catch (\Exception $e) {

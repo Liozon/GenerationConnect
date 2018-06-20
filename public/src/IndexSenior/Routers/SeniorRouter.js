@@ -59,11 +59,15 @@ export default Backbone.Router.extend({
         "rdv": "rdv", //#contact
         "evaluations": "evaluations", //#evaluations
         "suggestions": "suggestions", //#suggestions
+        
+        "disconnect": "disconnect", //#disconnect
 
 
     },
     index: function () {
-        let viewIndex = new ViewIndex();
+        let viewIndex = new ViewIndex({
+    collection: listeDemandes
+});
         $('.main').empty();
         viewIndex.render().appendTo(".main");
     },
@@ -99,7 +103,7 @@ export default Backbone.Router.extend({
         viewCompetence.render().appendTo(".liste-competence");
     },
     rdv: function () {
-        let viewRDV = new ViewRDV();
+        let viewRDV = new ViewRDV({collection: listeDemandes});
         $('.main').empty();
         viewRDV.render().appendTo(".main");
     },
@@ -112,5 +116,8 @@ export default Backbone.Router.extend({
         let viewSuggestions  = new ViewSuggestions();
         $('.main').empty();
         viewSuggestions.render().appendTo(".main");
+    },
+    disconnect: function () {
+        window.location.href = '../';
     }
 });

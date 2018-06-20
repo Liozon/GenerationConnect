@@ -15,8 +15,8 @@ class MainTableSeeder extends Seeder
         ========COMPETENCES====================
         =====================================*/
         $competence_1 = new \App\Competence([
-            'nom' => "écran",
-            'categorie' => "Informatique (matériel)",
+            'nom' => "ecran",
+            'categorie' => "Informatique (materiel)",
         ]);
         $competence_1->save();
 
@@ -28,37 +28,37 @@ class MainTableSeeder extends Seeder
 
         $competence_3 = new \App\Competence([
             'nom' => "Swisscom TV",
-            'categorie' => "Télévision",
+            'categorie' => "Television",
         ]);
         $competence_3->save();
 
         $competence_4 = new \App\Competence([
             'nom' => "branchement",
-            'categorie' => "Téléphonie fixe",
+            'categorie' => "Telephonie fixe",
         ]);
         $competence_4->save();
 
         $competence_5 = new \App\Competence([
             'nom' => "Whatsapp",
-            'categorie' => "Téléphonie mobile",
+            'categorie' => "Telephonie mobile",
         ]);
         $competence_5->save();
 
         $competence_6 = new \App\Competence([
             'nom' => "Skype",
-            'categorie' => "Appels vidéos",
+            'categorie' => "Appels videos",
         ]);
         $competence_6->save();
 
         $competence_7 = new \App\Competence([
             'nom' => "Word",
-            'categorie' => "Mise à jour de programmes",
+            'categorie' => "Mise a jour de programmes",
         ]);
         $competence_7->save();
 
         $competence_8 = new \App\Competence([
             'nom' => "Facebook",
-            'categorie' => "Réseaux sociaux",
+            'categorie' => "Reseaux sociaux",
         ]);
         $competence_8->save();
 
@@ -74,23 +74,63 @@ class MainTableSeeder extends Seeder
         ]);
         $competence_10->save();
 
+        $competence_11 = new \App\Competence([
+            'nom' => "configuration android",
+            'categorie' => "Telephonie mobile",
+        ]);
+
         /*=====================================
         ========REGIONS========================
         =====================================*/
         $region_1 = new \App\Region([
-            'nom' => "lausanne"
+            'nom' => "Lausanne"
         ]);
         $region_1->save();
 
         $region_2 = new \App\Region([
-            'nom' => "nord vaudois"
+            'nom' => "Nord Vaudois"
         ]);
         $region_2->save();
 
         $region_3 = new \App\Region([
-            'nom' => "genève"
+            'nom' => "Geneve"
         ]);
         $region_3->save();
+
+        $region_4 = new \App\Region([
+            'nom' => "Lavaux"
+        ]);
+        $region_4->save();
+
+        $region_5 = new \App\Region([
+            'nom' => "Fribourg"
+        ]);
+        $region_5->save();
+
+        $region_6 = new \App\Region([
+            'nom' => "Yverdon-les-Bains"
+        ]);
+        $region_6->save();
+
+        $region_7 = new \App\Region([
+            'nom' => "Nyon"
+        ]);
+        $region_7->save();
+
+        $region_8 = new \App\Region([
+            'nom' => "Ouest Lausannois"
+        ]);
+        $region_8->save();
+
+        $region_9 = new \App\Region([
+            'nom' => "Jura"
+        ]);
+        $region_9->save();
+
+        $region_10 = new \App\Region([
+            'nom' => "Grand Geneve"
+        ]);
+        $region_10->save();
 
         /*=====================================
         ========GROUPES========================
@@ -205,7 +245,7 @@ class MainTableSeeder extends Seeder
             'adresse' => "rue de la tour 10",
             'telephone' => "0211234567",
             'telephone_2' => "0791234567",
-            'photo' => "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Jean-Michel_Tartayre_7.jpg/220px-Jean-Michel_Tartayre_7.jpg",
+            'photo' => "https://image.flaticon.com/icons/svg/149/149071.svg",
         ]);
         $utilisateur_1->save();
         $utilisateur_1->groupes()->save($groupe_2);
@@ -223,7 +263,7 @@ class MainTableSeeder extends Seeder
             'adresse' => "rue du Moulin 6",
             'telephone' => "0212234567",
             'telephone_2' => "0792234567",
-            'photo' => "https://www.usherbrooke.ca/droit/fileadmin/_processed_/6/f/csm_Stephane_Bernatchez_FL44511_ce315d2846.jpg",
+            'photo' => "https://image.flaticon.com/icons/svg/149/149071.svg",
         ]);
         $utilisateur_2->save();
         $utilisateur_2->groupes()->save($groupe_2);
@@ -241,7 +281,7 @@ class MainTableSeeder extends Seeder
             'adresse' => "rue du lac 12",
             'telephone' => "0213234447",
             'telephone_2' => "0793234567",
-            'photo' => "http://spu.edu/~/media/administration/student-financial-services/panel/student-in-sub.ashx",
+            'photo' => "https://image.flaticon.com/icons/svg/149/149071.svg",
         ]);
         $utilisateur_3->save();
         $utilisateur_3->groupes()->save($groupe_1);
@@ -277,7 +317,7 @@ class MainTableSeeder extends Seeder
             'adresse' => "rue de la mare 1",
             'telephone' => "0215259982",
             'telephone_2' => "0795212579",
-            'photo' => "https://flashlearners.com/wp-content/uploads/2018/01/great-student-e1518484477610.jpg",
+            'photo' => "https://image.flaticon.com/icons/svg/149/149070.svg",
         ]);
         $utilisateur_5->save();
         $utilisateur_5->groupes()->save($groupe_3);
@@ -295,10 +335,82 @@ class MainTableSeeder extends Seeder
             'adresse' => "rue du moine 7",
             'telephone' => "0215259771",
             'telephone_2' => "0795212012",
-            'photo' => "https://flashlearners.com/wp-content/uploads/2018/01/great-student-e1518484477610.jpg",
+            'photo' => "https://image.flaticon.com/icons/svg/149/149070.svg",
         ]);
         $utilisateur_6->save();
         $utilisateur_6->groupes()->save($groupe_1);
+
+        $utilisateur_7 = new \App\User([
+            'pseudo' => "le-dav",
+            'password' => bcrypt('pomme'),
+            'nom' => "Melin",
+            'prenom' => "David",
+            'email' => "david-melin@gmail.com",
+            'ville' => "La Chaux-de-Fonds",
+            'codePostal' => "2300",
+            'sexe' => 'homme',
+            'canton' => 'Neuchâtel',
+            'adresse' => "chemin de l'industrie 8",
+            'telephone' => "0215259771",
+            'telephone_2' => "0795212012",
+            'photo' => "https://image.flaticon.com/icons/svg/149/149071.svg",
+        ]);
+        $utilisateur_7->save();
+        $utilisateur_7->groupes()->save($groupe_1);
+
+        $utilisateur_8 = new \App\User([
+            'pseudo' => "math-vg",
+            'password' => bcrypt('pomme'),
+            'nom' => "von Gunten",
+            'prenom' => "Mathys",
+            'email' => "mathysvongunten@outlook.com",
+            'ville' => "Coppet",
+            'codePostal' => "1296",
+            'sexe' => 'homme',
+            'canton' => 'Vaud',
+            'adresse' => "chemin des cygnes 13",
+            'telephone' => "0215259771",
+            'telephone_2' => "0795212012",
+            'photo' => "https://image.flaticon.com/icons/svg/149/149071.svg",
+        ]);
+        $utilisateur_8->save();
+        $utilisateur_8->groupes()->save($groupe_1);
+
+        $utilisateur_9 = new \App\User([
+            'pseudo' => "sandrine-b",
+            'password' => bcrypt('pomme'),
+            'nom' => "Burkhalter",
+            'prenom' => "Sandrine",
+            'email' => "sandrine.burkhalter@gmail.com",
+            'ville' => "Versoix",
+            'codePostal' => "1290",
+            'sexe' => 'femme',
+            'canton' => 'Genève',
+            'adresse' => "rue de bourgogne 6",
+            'telephone' => "0215259771",
+            'telephone_2' => "0795212012",
+            'photo' => "https://image.flaticon.com/icons/svg/149/149070.svg",
+        ]);
+        $utilisateur_9->save();
+        $utilisateur_9->groupes()->save($groupe_2);
+
+        $utilisateur_10 = new \App\User([
+            'pseudo' => "yves1958",
+            'password' => bcrypt('pomme'),
+            'nom' => "Baton",
+            'prenom' => "Yves",
+            'email' => "yves-baton@gmail.com",
+            'ville' => "Pompaples",
+            'codePostal' => "1318",
+            'sexe' => 'homme',
+            'canton' => 'Vaud',
+            'adresse' => "Route de prilly 23",
+            'telephone' => "0215259771",
+            'telephone_2' => "0795212012",
+            'photo' => "https://image.flaticon.com/icons/svg/149/149071.svg",
+        ]);
+        $utilisateur_10->save();
+        $utilisateur_10->groupes()->save($groupe_2);
 
         /*=====================================
         ========ABONNEMENTS====================
@@ -306,14 +418,14 @@ class MainTableSeeder extends Seeder
         $abonnement_1 = new \App\Abonnement([
             'nom' => "ponctuelle",
             'prix' => "15",
-            'description' => "Prix par prestation : vous ne payez que ce que vous utilisez. Prise en charge en priorité normale. Hotline disponible. 0% de prestations spécialisées",
+            'description' => "Prix par prestation : vous ne payez que ce que vous utilisez. Prise en charge en priorite normale. Hotline disponible. 0% de prestations specialisees",
         ]);
         $abonnement_1->save();
 
         $abonnement_2 = new \App\Abonnement([
             'nom' => "light",
             'prix' => "10",
-            'description' => "Une intervention par mois comprise dans l'abonnement. Prise en charge en priorité normale. Hotline disponible. 0% de prestations spécialisées",
+            'description' => "Une intervention par mois comprise dans l'abonnement. Prise en charge en priorite normale. Hotline disponible. 0% de prestations specialisees",
         ]);
         $abonnement_2->save();
 
@@ -347,6 +459,20 @@ class MainTableSeeder extends Seeder
             'etage' => "2",
         ]);
         $senior_2->save();
+
+        $senior_3 = new \App\Senior([
+            'user_id' => $utilisateur_9->id,
+            'abonnement_id' => $abonnement_3->id,
+            'etage' => "0",
+        ]);
+        $senior_3->save();
+
+        $senior_4 = new \App\Senior([
+            'user_id' => $utilisateur_10->id,
+            'abonnement_id' => $abonnement_1->id,
+            'etage' => "13",
+        ]);
+        $senior_4->save();
 
         /*=====================================
         ========JUNIORS========================
@@ -400,6 +526,40 @@ class MainTableSeeder extends Seeder
         $junior_3->competences()->save($competence_6,['niveau' => '3']);
         $junior_3->competences()->save($competence_8,['niveau' => '3']);
         $junior_3->competences()->save($competence_4,['niveau' => '2']);
+
+        $junior_4 = new \App\Junior([
+            'user_id' => $utilisateur_7->id,
+            'adresse_2' => "",
+            'lienCV' => "http://example.com/CV-david",
+            'dureeEngagement' => "5",
+            'estValide' => true,
+            'banque' => "UBS",
+            'numeroCompteBancaire' => "CH5604835012345678009",
+            'aProposDeMoi' => "j'apprécie le contact humain"
+        ]);
+        $junior_4->save();
+        $junior_4->competences()->save($competence_1,['niveau' => '1']);
+        $junior_4->competences()->save($competence_3,['niveau' => '2']);
+        $junior_4->competences()->save($competence_6,['niveau' => '3']);
+        $junior_4->competences()->save($competence_8,['niveau' => '3']);
+        $junior_4->competences()->save($competence_4,['niveau' => '2']);
+
+        $junior_5 = new \App\Junior([
+            'user_id' => $utilisateur_7->id,
+            'adresse_2' => "",
+            'lienCV' => "http://example.com/CV-mathys",
+            'dureeEngagement' => "5",
+            'estValide' => true,
+            'banque' => "Postfinance",
+            'numeroCompteBancaire' => "CH5604835012345678009",
+            'aProposDeMoi' => "depuis tout petit l'informatique est ma passion. J'aimerais partager mon expérience avec les gens qui en ont besoin."
+        ]);
+        $junior_5->save();
+        $junior_5->competences()->save($competence_4,['niveau' => '2']);
+        $junior_5->competences()->save($competence_5,['niveau' => '2']);
+        $junior_5->competences()->save($competence_6,['niveau' => '3']);
+        $junior_5->competences()->save($competence_8,['niveau' => '1']);
+        $junior_5->competences()->save($competence_10,['niveau' => '2']);
 
         /*=====================================
         ========DISPONIBILITES=======================
@@ -466,6 +626,30 @@ class MainTableSeeder extends Seeder
             'heureFin' => "19:30:00",
         ]);
         $disponibilite_8->save();
+
+        $disponibilite_9 = new \App\Disponibilite([
+            'junior_id' => $junior_4->id,
+            'heureDebut' => "09:30:00",
+            'heureFin' => "12:30:00",
+            'date' => "2018-07-18",
+        ]);
+        $disponibilite_9->save();
+
+        $disponibilite_10 = new \App\Disponibilite([
+            'junior_id' => $junior_4->id,
+            'heureDebut' => "19:30:00",
+            'heureFin' => "21:30:00",
+            'date' => "2018-07-18",
+        ]);
+        $disponibilite_10->save();
+
+        $disponibilite_11 = new \App\Disponibilite([
+            'junior_id' => $junior_5->id,
+            'heureDebut' => "13:00:00",
+            'heureFin' => "15:00:00",
+            'date' => "2018-07-18",
+        ]);
+        $disponibilite_11->save();
 
         /*=====================================
         ========RECURRENCES====================
@@ -562,6 +746,22 @@ class MainTableSeeder extends Seeder
         $demande_4->save();
         $demande_4->competences()->save($competence_7);
         $demande_4->disponibilites()->save($disponibilite_7);
+
+        $demande_5 = new \App\Demande([
+            'junior_id' => $junior_4->id,
+            'senior_id' => $senior_3->id,
+            'employe_id' => $employe_1->id,
+            'description' => "Je cherche une personne pour m'aider à configurer l'android.",
+            'date' => "2018-07-18",
+            'heure'=> "09:30:00",
+            'duree' => "1",
+            'titre' => "android",
+            'statut' => "accepté",
+        ]);
+
+        $demande_5->save();
+        $demande_5->competences()->save($competence_11);
+        $demande_5->disponibilites()->save($disponibilite_9);
 
         /*=====================================
         ========INTERVENTIONS==================

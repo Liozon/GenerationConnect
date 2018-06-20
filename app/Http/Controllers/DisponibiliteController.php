@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Disponibilite;
+use App\Recurrence;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -52,11 +53,14 @@ class DisponibiliteController extends Controller
         if(empty($valuesDisponibilite['date'])){
             $valuesRecurrence['dateDebut'] = $request->disponibiliteRecurrenceDateDebut;
             $valuesRecurrence['dateFin'] = $request->disponibiliteRecurrenceDateFin;
+            $newRecurrence = Recurrence::saveOne($valuesRecurrence);
 
         }
         elseif(empty($valuesDisponibilite['date']) && empty($valuesDisponibilite['jourDeLaSemaine']))
         {
             $valuesRecurrence['frequence'] = "quotidien";
+            $newRecurrence = Recurrence::saveOne($valuesRecurrence);
+
         }
 
         DB::beginTransaction();
@@ -98,7 +102,66 @@ class DisponibiliteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        // Récupération des inputs pertinents
+        if (!$request->has([
+            'disponibiliteInputJuniorID',
+            'disponibiliteInputHeureDebut',
+            'disponibiliteInputHeureFin',
+            'disponibiliteInputDate',
+            'disponibiliteInputJourDeLaSemaine'
+        ])
+        ) {
+            return response()->json(['error' => 'empty request'], 400);
+        }
+
+        $disponibilite = Disponibilite::find($id);
+
+        if(empty($disponibilite)){
+            return response()->json(['error' => 'disponibilite introuvable']);
+        }
+
+        if(empty($valuesDisponibilite['date'])){
+            $valuesRecurrence['dateDebut'] = $request->disponibiliteRecurrenceDateDebut;
+            $valuesRecurrence['dateFin'] = $request->disponibiliteRecurrenceDateFin;
+
+            $recurrence = Recurrence::find($valuesDisponibilite['recurrence_id']);
+
+        }
+        elseif(empty($valuesDisponibilite['date']) && empty($valuesDisponibilite['jourDeLaSemaine']))
+        {
+            $valuesRecurrence['frequence'] = "quotidien";
+
+        }
+
+        $recurrence->update($valuesRecurrence);
+
+        $valuesDisponibilite['junior_id'] = $request->disponibiliteInputJuniorID;
+        $valuesDisponibilite['heureDebut'] = $request->disponibiliteInputHeureDebut;
+        $valuesDisponibilite['heureFin'] = $request->disponibiliteInputHeureFin;
+        $valuesDisponibilite['date'] = $request->disponibiliteInputDate;
+        $valuesDisponibilite['jourDeLaSemaine'] = $request->disponibiliteInputJourDeLaSemaine;
+
+        DB::beginTransaction();
+        try {
+
+            $valuesDisponibilite['update'] = true;
+
+            $validate = Disponibilite::getValidation($valuesDisponibilite);
+            if ($validate->fails()) {
+                return $validate->errors();
+            }
+
+            unset($valuesDisponibilite['update']);
+
+            $disponibilite->update($valuesDisponibilite);
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json(['error',$e->getMessage()]);
+        }
+        return $disponibilite;
     }
 
     /**
@@ -109,6 +172,9 @@ class DisponibiliteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $disponibilite = Disponibilite::find($id);
+        $disponibilite->delete();
+
+        return $disponibilite;
     }
 }

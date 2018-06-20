@@ -19,7 +19,7 @@ class CreateJuniorsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('adresse_2')->nullable();
             $table->string('lienCV');
-            $table->text('aProposDeMoi',254)->nullable();
+            $table->text('aProposDeMoi')->nullable();
             $table->integer('dureeEngagement');
             $table->boolean('estValide');
             $table->string('banque')->nullable();

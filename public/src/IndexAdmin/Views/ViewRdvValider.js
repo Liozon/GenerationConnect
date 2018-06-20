@@ -2,7 +2,8 @@ import tmplDefault from "IndexAdmin/Templates/RdvValider.html";
 
 export default Backbone.View.extend({  
     events: {
-        "click .validerrdv": "act_set"
+        "click .validerrdv": "act_set",
+        "click .btn-refuser": "refuser"
     },    
     act_set: function (evt) {
         evt.preventDefault();
@@ -12,7 +13,16 @@ export default Backbone.View.extend({
         model.set({
             statut: statut
         });
-        console.log(model);
+        model.save();
+    },
+    refuser: function (evt) {
+        evt.preventDefault();
+        let id = $(event.target).attr('data-id');
+        let model = this.collection.get(id);
+        let statut = "refusé";
+        model.set({
+            statut: statut
+        });
         model.save();
     },
     initialize: function(attrs, options) {        

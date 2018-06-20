@@ -9,13 +9,9 @@
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
+                            
                             <li>
-                                <a href="">
-                                    <p>Mon compte</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
+                                <a href="#disconnect">
                                     <p>Se déconnecter</p>
                                 </a>
                             </li>
@@ -47,63 +43,31 @@
                                             <th>Date</th>
                                             <th>Heure</th>
                                             <th>Durée</th>
-                                            <th>Demandeur</th>
+                                            <th>Titre</th>
                                             <th>Adresse</th>
                                             <th>Localité</th>
                                             <th>Domaine(s)</th>
-                                            <th>Action</th>
+                                            <th>Statut</th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>28 mai 2018</td>
-                                                <td>12h30</td>
-                                                <td>30 minutes</td>
-                                                <td>Jacques Chiroc</td>
-                                                <td>Ch. de l'Elysée 8</td>
-                                                <td>Lausanne</td>
-                                                <td>Informatique</td>
-                                                <td class="safa_action">Refusée</td>
-                                            </tr>
-                                            <tr>
-                                                <td>28 mai 2018</td>
-                                                <td>12h30</td>
-                                                <td>30 minutes</td>
-                                                <td>Jacques Chiroc</td>
-                                                <td>Ch. de l'Elysée 8</td>
-                                                <td>Lausanne</td>
-                                                <td>Informatique</td>
-                                                <td class="safa_action">Refusée</td>
-                                            </tr>
-                                            <tr>
-                                                <td>28 mai 2018</td>
-                                                <td>12h30</td>
-                                                <td>30 minutes</td>
-                                                <td>Jacques Chiroc</td>
-                                                <td>Ch. de l'Elysée 8</td>
-                                                <td>Lausanne</td>
-                                                <td>Informatique</td>
-                                                <td class="safa_action">Refusée</td>
-                                            </tr>
-                                            <tr>
-                                                <td>28 mai 2018</td>
-                                                <td>12h30</td>
-                                                <td>30 minutes</td>
-                                                <td>Jacques Chiroc</td>
-                                                <td>Ch. de l'Elysée 8</td>
-                                                <td>Lausanne</td>
-                                                <td>Informatique</td>
-                                                <td class="safa_action">Refusée</td>
-                                            </tr>
-                                            <tr>
-                                                <td>28 mai 2018</td>
-                                                <td>12h30</td>
-                                                <td>30 minutes</td>
-                                                <td>Jacques Chiroc</td>
-                                                <td>Ch. de l'Elysée 8</td>
-                                                <td>Lausanne</td>
-                                                <td>Informatique</td>
-                                                <td class="safa_action">Refusée</td>
-                                            </tr>
+                                           {{#each demandes}}
+        {{#ifEquals statut "annulé"}}
+        <tr>
+            <td>{{dateConvert date}}</td>
+            <td>{{heure}}</td>
+            <td>{{duree}}</td>
+            <td style="text-transform: capitalize;">{{titre}}</td>
+            <td style="text-transform: capitalize;">{{senior.user.adresse}}</td>
+            <td style="text-transform: capitalize;">{{senior.user.ville}}</td>
+            <td style="text-transform: capitalize;">{{#each competences}}
+                {{nom}}, {{categorie}}
+                {{/each}}</td>
+            <td style="text-transform: capitalize;">
+                {{statut}}
+            </td>
+        </tr>
+        {{/ifEquals}}
+        {{/each}}
                                         </tbody>
                                     </table>
                                 </div>

@@ -38,7 +38,7 @@ class RecurrenceController extends Controller
         ) {
             return response()->json(['error' => 'empty request'], 400);
         }
-        $valuesRecurrence['disponibilite_id'] = $request->recurrenceDisponibiliteID;
+
         $valuesRecurrence['dateDebut'] = $request->recurrencetDateDebut;
         $valuesRecurrence['dateFin'] = $request->recurrenceDateFin;
         $valuesRecurrence['frequence'] = $request->recurrenceFrequence;
@@ -92,7 +92,6 @@ class RecurrenceController extends Controller
 
         $recurrence = Recurrence::find($id);
 
-        $valuesRecurrence['disponibilite_id'] = $request->recurrenceDisponibiliteID;
         $valuesRecurrence['dateDebut'] = $request->recurrencetDateDebut;
         $valuesRecurrence['dateFin'] = $request->recurrenceDateFin;
         $valuesRecurrence['frequence'] = $request->recurrenceFrequence;

@@ -14,15 +14,17 @@ export default Backbone.View.extend({
         model.set({
            statut: statut
         });
-        console.log(model);
         model.save();
     },
 
     initialize: function(attrs, options) {        
-        this.template =  tmplDefault;                
+        this.template =  tmplDefault;  
+        this.listenTo(this.collection, "all", this.render);              
     },
     render: function() {      
-        this.$el.html(this.template());
+        this.$el.html(this.template({
+            demandes: this.collection.toJSON(),
+        }));
         return this.$el; 
     }
 });

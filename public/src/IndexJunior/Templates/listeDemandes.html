@@ -12,14 +12,14 @@
         </thead>
         <tbody>
             {{#each demandes}}
-            {{#ifEquals statut "envoyé"}}
+            {{#ifEquals statut "reçu"}}
             <tr>
                 <td class="date">{{dateConvert date}}</td>
                 <td class="hour">{{heure}}</td>
                 <td class="duration">{{duree}}</td>
                 <td class="title">{{titre}}</td>
                 <td class="description">{{description}}</td>
-                <td class="city">{{senior.user.ville}}</td>
+                <td class="city"  style="text-transform: capitalize;">{{senior.user.ville}}</td>
                 <td class="competence" competence-id="{{competences.[0].id}}">{{competences.[0].categorie}} - {{competences.[0].nom}}</td>
                 <td>
                     <button class="btn btn-success btn-fill demande-accept" data-id="{{id}}">Accepter</button>

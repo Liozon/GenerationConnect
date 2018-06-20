@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('sexe');
-            $table->string('email', 254);
+            $table->string('email', 254)->nullable();
             $table->string('ville');
             $table->integer('codePostal');
             $table->string('adresse');

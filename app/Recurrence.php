@@ -43,6 +43,8 @@ class Recurrence extends Model
 
             if(!isset($inputs['update'])){
                 $existe = Recurrence::where('disponibilite_id',$inputs['disponibilite_id'])
+                    ->where('description',$inputs['description'])
+                    ->where('nom',$inputs['nom'])
                     ->first();
 
                 if(!empty($existe)){
@@ -51,14 +53,12 @@ class Recurrence extends Model
             }
 
         });
-        return $validator;
     }
 
     public static function saveOne(array $values)
     {
         $recurrence = new self();
 
-        $recurrence->disponibilite_id = $values['disponibilite_id'];
         $recurrence->dateDebut = $values['dateDebut'];
         $recurrence->dateFin = $values['dateFin'];
         $recurrence->frequence = $values['frequence'];

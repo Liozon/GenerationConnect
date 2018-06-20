@@ -58,7 +58,6 @@ export default Backbone.View.extend({
                 };
             }
         });
-        console.log(newInscription);
        // this.collection.create(newInscription.toJSON());
         
     },
@@ -86,7 +85,6 @@ export default Backbone.View.extend({
             juniorInputState: canton,
             juniorInputNPA: npa,
         };
-        console.log(newInscription);
         var url='http://pingouin.heig-vd.ch/jurazone/api/juniors';
         $.ajax({
             url:url,

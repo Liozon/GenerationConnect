@@ -3,8 +3,8 @@
         <thead>
             <th>Date</th>
             <th>Heure</th>
-            <th>Titre</th>
-            <th>Description</th>
+            <th>Demandeur</th>
+            <th>Demande</th>
             <th>Localité</th>
             <th>Domaine(s)</th>
             <th>Action</th>
@@ -14,9 +14,9 @@
             <tr>
                 <td>{{dateConvert date}}</td>
                 <td>{{heure}}</td>
+                <td style="text-transform: capitalize;">{{senior.user.prenom}} {{senior.user.nom}}</td>
                 <td>{{titre}}</td>
-                <td>{{description}}</td>
-                <td>{{senior.user.ville}}</td>
+                <td  style="text-transform: capitalize;">{{senior.user.ville}}</td>
                 <td>{{competences.[0].categorie}} - {{competences.[0].nom}}</td>
                 <td><button class="btn btn-primary btn-fill" id="route" data-id="{{@index}}">Itinéraire</button> 
             </tr>

@@ -16,7 +16,6 @@ export default Backbone.View.extend({
 
         let id = $(event.target).attr("")
 
-        console.log("salut");
         let titre = this.$el.find(".titre_safa").val();
         //let competence = this.$el.find.("[id-competence]").val();
         let description = this.$el.find(".description_safa").val();
@@ -51,8 +50,8 @@ export default Backbone.View.extend({
                 console.log(["Demande requete: ", data]);
 
                 if(data=="correct") {  // If there is an error, show the error messages
-                    window.location.replace('#login');
-                    alert('Vous êtes bien inscrits ! Vous pouvez désormais vous connecter dans la page login !');
+                    window.location.replace('#demandes');
+                    alert('La demande est bien envoyée ! Un admin selectionnera votre junior.');
                 }
                 else { // If not, send them back to the home page
                     //window.location.replace('IndexJunior/index.php');
@@ -61,7 +60,6 @@ export default Backbone.View.extend({
                 };
             }
         });
-        console.log(newDemande);
         // this.collection.create(newInscription.toJSON());
 
     },
@@ -74,8 +72,6 @@ export default Backbone.View.extend({
         let heure = this.$el.find(".heure_safa").val();
         let duree = this.$el.find(".duree_safa").val();
 
-        console.log(description);
-        console.log(comp)
 
         $(".titre_popup_safa").append(titre);
         $(".description_popup_safa").append(description);

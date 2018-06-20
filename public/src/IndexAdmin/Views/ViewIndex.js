@@ -13,7 +13,8 @@ export default Backbone.View.extend({
         "click .choisirjun": "choisirjun",
         "click .choisirjunior": "act_set",
         "click .close-pop": "hide",
-        "click .fermerprof": "switch"
+        "click .fermerprof": "switch",
+        "click .btn-refuser": "refuser"
         //"click .validerrdv": "act_set"
     },
     hide: function (evt) {
@@ -28,7 +29,6 @@ export default Backbone.View.extend({
         let id = $(event.target).attr('data-id');
         
         let model = this.collection.get(id);
-        console.log(model);
         let viewChoixJunior = new ViewChoixJuniors({
             collection: collectionJuniors,
             model: model
@@ -38,18 +38,26 @@ export default Backbone.View.extend({
         viewChoixJunior.render().appendTo(".popup");
         viewChoixJunior.delegateEvents();
     },
+    refuser: function (evt) {
+        evt.preventDefault();
+        let id = $(event.target).attr('data-id');
+        let model = this.collection.get(id);
+        let statut = "refusé";
+        model.set({
+            statut: statut
+        });
+        model.save();
+    },
 
     choisirjun: function (evt) {
         let idjun = $(event.target).attr('data-id');
         let idDemande = $(event.target).attr('demande-id');
-        console.log(idDemande);
         let model = this.collection.get(idDemande);
         let statut = "reçu";
         model.set({
             junior_id: idjun,
             statut: statut
         });
-        console.log(model);
         model.save();
 
     },

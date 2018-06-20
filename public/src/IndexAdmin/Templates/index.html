@@ -74,7 +74,7 @@
                                             </ul>
                                         </td>
                                         <td><button class="btn btn-success btn-fill choisirjunior" data-id="{{id}}">Choisir junior</button>
-                                            <button class="btn btn-danger btn-fill">Refuser</button>
+                                            <button class="btn btn-danger btn-fill btn-refuser" data-id="{{id}}">Refuser</button>
                                         </td>
                                     </tr>
                                     {{/ifEquals}} {{/each}}
@@ -109,6 +109,7 @@
                                     <tr>
                                         <td class="avecmaj">{{dateConvert date}}</td>
                                         <td class="avecmaj">{{heure}}</td>
+                                        <td>{{duree}}</td>
                                         <td class="avecmaj">{{senior.user.prenom}} {{senior.user.nom}}</td>
                                         <td class="avecmaj">{{junior.user.prenom}} {{junior.user.nom}}</td>
                                         <td class="avecmaj">{{senior.user.ville}}</td>

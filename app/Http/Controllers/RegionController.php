@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Region;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
 
 class RegionController extends Controller
 {
@@ -28,30 +25,25 @@ class RegionController extends Controller
      */
     public function store(Request $request)
     {
-        // Récupération des inputs pertinents
-        if (!$request->has([
-            'regionNom',
-        ])
-        ) {
-            return response()->json(['error' => 'empty request'], 400);
+        $inputs = $request->only('regionInputNom');
+
+        $validate = Region::getValidation($inputs);
+
+        if ($validate->fails()) {
+            return redirect()->back()->withInput()->withErrors($validate);
         }
-        $valuesRegion['nom'] = $request->regionNom;
 
         DB::beginTransaction();
         try {
-            $validate = Region::getValidation($valuesRegion);
-            if ($validate->fails()) {
-                return $validate->errors();
-            }
-
-            $newRegion = Region::saveOne($valuesRegion);
-
+            Junior::saveOne($inputs);
             DB::commit();
+            Message::success('region.saved');
+            return redirect('region');
         } catch (\Exception $e) {
             DB::rollback();
-            return response()->json(['error',$e->getMessage()]);
+            Message::error('bd.error', ['error' => $e->getMessage()]);
+            return redirect()->back()->withInput();
         }
-        return $newRegion;
     }
 
     /**
@@ -74,35 +66,11 @@ class RegionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Récupération des inputs pertinents
-        if (!$request->has([
-            'regionNom',
-        ])
-        ) {
-            return response()->json(['error' => 'empty request'], 400);
-        }
+        $inputs = $request->only('regionInputNom');
 
-        $region = Region::find($id);
+        $region = Regions::find($id);
 
-        $valuesRegion['nom'] = $request->regionNom;
-
-        DB::beginTransaction();
-        try {
-
-            $valuesRegion['update'] = 1;
-            $validate = Region::getValidation($valuesRegion);
-            if ($validate->fails()) {
-                return $validate->errors();
-            }
-
-            $region->update($valuesRegion);
-
-            DB::commit();
-        } catch (\Exception $e) {
-            DB::rollback();
-            return response()->json(['error',$e->getMessage()]);
-        }
-        return $region;
+        $region->nom = $inputs['regionInputNom'];
     }
 
     /**
@@ -115,7 +83,5 @@ class RegionController extends Controller
     {
         $region = Region::find($id);
         $region->delete();
-
-        return $region;
     }
 }

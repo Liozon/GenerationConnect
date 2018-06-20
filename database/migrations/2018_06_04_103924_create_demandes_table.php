@@ -16,14 +16,14 @@ class CreateDemandesTable extends Migration
         Schema::create('demandes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('junior_id')->nullable();
-            $table->integer('senior_id');
+            $table->integer('senior_id')->nullable();
             $table->integer('employe_id')->nullable();
             $table->foreign('senior_id')->references('id')->on('seniors');
             $table->foreign('employe_id')->references('id')->on('employes');
             $table->text('description');
             $table->date('date');
             $table->time('heure');
-            $table->integer('duree');
+            $table->time('duree');
             $table->string('titre');
             $table->string('statut');
             $table->timestamps();

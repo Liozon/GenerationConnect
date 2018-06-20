@@ -12,15 +12,15 @@
         </thead>
         <tbody>
         {{#each demandes}}
-        {{#ifEquals statut "validé"}}
+        {{#ifEquals statut "envoyé"}}
         <tr>
-            <td>{{date}}</td>
+            <td>{{dateConvert date}}</td>
             <td>{{heure}}</td>
             <td>{{duree}}</td>
-            <td>{{titre}}</td>
-            <td>{{senior.user.adresse}}</td>
-            <td>{{senior.user.ville}}</td>
-            <td>{{#each competences}}
+            <td style="text-transform: capitalize;">{{titre}}</td>
+            <td style="text-transform: capitalize;">{{senior.user.adresse}}</td>
+            <td style="text-transform: capitalize;">{{senior.user.ville}}</td>
+            <td style="text-transform: capitalize;">{{#each competences}}
                 {{nom}}, {{categorie}}
                 {{/each}}</td>
             <td>

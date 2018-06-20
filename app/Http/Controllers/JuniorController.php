@@ -23,7 +23,15 @@ class JuniorController extends Controller
      */
     public function index()
     {
-        return response()->json(Junior::with('user','competences')->get());
+        return response()->json(Junior::with('user','competences','disponibilites')->get());
+    }
+
+    public function juniorsdispos($id)
+    {
+        $demande = Demande::find($id);
+        //$demande
+        return response()->json($id);
+        //Junior::with('user','competences','disponibilites')->where('')->get()
     }
 
     /**
@@ -182,26 +190,27 @@ class JuniorController extends Controller
     {
         // Récupération des inputs pertinents
         if (!$request->has([
-            'juniorInputSex',
-            'juniorInputFirstName',
-            'juniorInputName',
-            'juniorInputPseudo',
-            'juniorInputPassword',
-            'juniorInputEmail',
-            'juniorInputAddress',
-            'juniorInputCity',
-            'juniorInputState',
-            'juniorInputNPA',
-            'juniorInputPhoneNumber',
-            'juniorInputPhoneNumber_2',
-            'juniorInputPhoto',
-            'juniorInputLienCV',
-            'juniorInputDureeEngagement',
-            'juniorInputAdresse_2',
-            'juniorInputBanque',
-            'juniorInputNumeroCompteBancaire',
-            'juniorInputEstValide',
-            'juniorInputAboutMe'
+            'sexe',
+            'prenom',
+            'nom',
+            'pseudo',
+            'password',
+            'email',
+            'adresse',
+            'ville',
+            'canton',
+            'codePostal',
+            'telephone',
+            'telephone_2',
+            'photo',
+            'lienCV',
+            'adresse_2',
+            'numeroCompteBancaire',
+            'banque',
+            'estValide',
+            'dureeEngagement',
+            'aProposDeMoi',
+            "user_id"
         ])
         ) {
             return response()->json(['error' => 'empty request'], 400);
@@ -213,33 +222,37 @@ class JuniorController extends Controller
             return response()->json(['error' => 'junior introuvable']);
         }
 
-        $valuesUser['sexe'] = $request->juniorInputSex;
-        $valuesUser['nom'] = $request->juniorInputName;
-        $valuesUser['prenom'] = $request->juniorInputFirstName;
-        $valuesUser['pseudo'] = $request->juniorInputPseudo;
-        $valuesUser['password'] = bcrypt($request->juniorInputPassword);
-        $valuesUser['adresse'] = $request->juniorInputAddress;
-        $valuesUser['ville'] = $request->juniorInputCity;
-        $valuesUser['email'] = $request->juniorInputEmail;
-        $valuesUser['canton'] = $request->juniorInputState;
-        $valuesUser['codePostal'] = $request->juniorInputNPA;
-        $valuesUser['telephone'] = $request->juniorInputPhoneNumber;
-        $valuesUser['telephone_2'] = $request->juniorInputPhoneNumber_2;
-        $valuesUser['photo'] = $request->juniorInputPhoto;
+        $valuesUser['sexe'] = $request->sexe;
+        $valuesUser['nom'] = $request->nom;
+        $valuesUser['prenom'] = $request->prenom;
+        $valuesUser['pseudo'] = $request->pseudo;
+        $valuesUser['password'] = bcrypt($request->password);
+        $valuesUser['adresse'] = $request->adresse;
+        $valuesUser['ville'] = $request->ville;
+        $valuesUser['email'] = $request->email;
+        $valuesUser['canton'] = $request->canton;
+        $valuesUser['codePostal'] = $request->codePostal;
+        $valuesUser['telephone'] = $request->telephone;
+        $valuesUser['telephone_2'] = $request->telephone_2;
+        $valuesUser['photo'] = $request->photo;
 
-        $valuesJunior['lienCV'] = $request->juniorInputLienCV;
-        $valuesJunior['dureeEngagement'] = $request->juniorInputDureeEngagement;
-        $valuesJunior['estValide'] = $request->juniorInputEstValide;
-        $valuesJunior['adresse_2'] = $request->juniorInputAdresse_2;
-        $valuesJunior['banque'] = $request->juniorInputBanque;
-        $valuesJunior['numeroCompteBancaire'] = $request->juniorInputNumeroCompteBancaire;
-        $valuesJunior['aProposDeMoi'] = $request->juniorInputAboutMe;
+        $valuesJunior['lienCV'] = $request->lienCV;
+        $valuesJunior['dureeEngagement'] = $request->dureeEngagement;
+        $valuesJunior['estValide'] = $request->estValide;
+        $valuesJunior['adresse_2'] = $request->adresse_2;
+        $valuesJunior['banque'] = $request->banque;
+        $valuesJunior['numeroCompteBancaire'] = $request->numeroCompteBancaire;
+        $valuesJunior['aProposDeMoi'] = $request->aProposDeMoi;
+        $valuesJunior['user_id'] = $request->user_id;
 
         DB::beginTransaction();
         try {
 
             $valuesUser['update'] = true;
+
             $validate = User::getValidation($valuesUser);
+
+
             if ($validate->fails()) {
                 return $validate->errors();
             }
@@ -251,11 +264,15 @@ class JuniorController extends Controller
             $user->update($valuesUser);
 
             $valuesJunior['update'] = true;
-            $validate = Senior::getValidation($valuesJunior);
+
+            $validate = Junior::getValidation($valuesJunior);
+
 
             if ($validate->fails()) {
+
                 return $validate->errors();
             }
+
 
             unset($valuesJunior['update']);
 
@@ -281,7 +298,7 @@ class JuniorController extends Controller
 
         $user = User::where('id',$junior->user_id)->first();
         $user->delete();
-        
+
         $junior->delete();
 
         return $junior;

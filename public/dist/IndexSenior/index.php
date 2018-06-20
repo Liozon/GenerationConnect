@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+    <link rel="icon" type="image/png" href="assets/img/favicon_off.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <title>Mon compte - Generation Connect</title>

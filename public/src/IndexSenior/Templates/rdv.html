@@ -1,149 +1,109 @@
+<div class="main-panel">
+    <nav class="navbar navbar-default navbar-fixed">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Rendez-vous</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li>
+                        <a href="#disconnect">
+                            <p>Se déconnecter</p>
+                        </a>
+                    </li>
+                    <li class="separator hidden-lg"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-        <div class="main-panel">
-            <nav class="navbar navbar-default navbar-fixed">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="#">Rendez-vous</a>
-                    </div>
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a href="">
-                                    <p>Mon compte</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <p>Se déconnecter</p>
-                                </a>
-                            </li>
-                            <li class="separator hidden-lg"></li>
-                        </ul>
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Prochains rendez-vous</h4>
+                        </div>
+                        <div class="content table-responsive">
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <th>Date</th>
+                                    <th>Heure</th>
+                                    <th>Durée</th>
+                                    <th>Prestataire</th>
+                                    <th>Localité</th>
+                                    <th>Domaine</th>
+                                </thead>
+                                <tbody>
+                                    {{#each demandes}}
+                                    {{#ifEquals statut "validé"}}
+                                    <tr>
+                                        <td>{{dateConvert date}}</td>
+                                        <td>{{heure}}</td>
+                                        <td>{{duree}}</td>
+                                        <td style="text-transform: capitalize;">{{junior.user.prenom}} {{junior.user.nom}}</td>
+                                        <td style="text-transform: capitalize;">{{senior.user.ville}}</td>
+                                        <td>
+                                            <ul>
+                                                {{#each competences}}
+                                                <li style="text-transform: capitalize;">{{nom}}, {{categorie}}</li>
+                                                {{/each}}
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    {{/ifEquals}}
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </nav>
 
-
-            <div class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="header">
-                                    <h4 class="title">Prochains rendez-vous</h4>
-                                </div>
-                                <div class="content table-responsive">
-                                    <table class="table table-hover table-striped">
-                                        <thead>
-                                            <th>Date</th>
-                                            <th>Heure</th>
-                                            <th>Demandeur</th>
-                                            <th>Localité</th>
-                                            <th>Domaine</th>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>12 mai 2018</td>
-                                                <td>12h30</td>
-                                                <td>Charles Branson</td>
-                                                <td>Yverdon-les-Bains</td>
-                                                <td>Informatique</td>
-                                            </tr>
-                                            <tr>
-                                                <td>12 mai 2018</td>
-                                                <td>12h30</td>
-                                                <td>Charles Branson</td>
-                                                <td>Yverdon-les-Bains</td>
-                                                <td>Informatique</td>
-                                            </tr>
-                                            <tr>
-                                                <td>12 mai 2018</td>
-                                                <td>12h30</td>
-                                                <td>Charles Branson</td>
-                                                <td>Yverdon-les-Bains</td>
-                                                <td>Informatique</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Historique</h4>
                         </div>
-
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="header">
-                                    <h4 class="title">Historique</h4>
-                                </div>
-                                <div class="content table-responsive">
-                                    <table class="table table-hover table-striped">
-                                        <thead>
-                                        <th>Date</th>
-                                        <th>Heure</th>
-                                        <th>Durée</th>
-                                        <th>Demandeur</th>
-                                        <th>Adresse</th>
-                                        <th>Localité</th>
-                                        <th>Domaine(s)</th>
-                                        <th>Action</th>
-                                        </thead>
-                                        <tbody>
+                        <div class="content table-responsive">
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <th>Date</th>
+                                    <th>Heure</th>
+                                    <th>Durée</th>
+                                    <th>Prestataire</th>
+                                    <th>Localité</th>
+                                    <th>Domaine</th>
+                                    <th>Statut</th>
+                                </thead>
+                                <tbody>
+                                    {{#each demandes}} 
+                                    {{#ifEquals statut "refusé"}}
                                         <tr>
-                                            <td>28 mai 2018</td>
-                                            <td>12h30</td>
-                                            <td>30 minutes</td>
-                                            <td>Jacques Chiroc</td>
-                                            <td>Ch. de l'Elysée 8</td>
-                                            <td>Lausanne</td>
-                                            <td>Informatique</td>
-                                            <td class="safa_action">Refusée</td>
+                                            <td>{{dateConvert date}}</td>
+                                            <td>{{heure}}</td>
+                                            <td>{{duree}}</td>
+                                            <td style="text-transform: capitalize;">{{junior.user.prenom}} {{junior.user.nom}}</td>
+                                            <td style="text-transform: capitalize;">{{senior.user.ville}}</td>
+                                            <td>
+                                                <ul>
+                                                    {{#each competences}}
+                                                    <li style="text-transform: capitalize;">{{nom}}, {{categorie}}</li>
+                                                    {{/each}}
+                                                </ul>
+                                            </td>
                                         </tr>
-                                        <tr>
-                                            <td>28 mai 2018</td>
-                                            <td>12h30</td>
-                                            <td>30 minutes</td>
-                                            <td>Jacques Chiroc</td>
-                                            <td>Ch. de l'Elysée 8</td>
-                                            <td>Lausanne</td>
-                                            <td>Informatique</td>
-                                            <td class="safa_action">Refusée</td>
-                                        </tr>
-                                        <tr>
-                                            <td>28 mai 2018</td>
-                                            <td>12h30</td>
-                                            <td>30 minutes</td>
-                                            <td>Jacques Chiroc</td>
-                                            <td>Ch. de l'Elysée 8</td>
-                                            <td>Lausanne</td>
-                                            <td>Informatique</td>
-                                            <td class="safa_action">Refusée</td>
-                                        </tr>
-                                        <tr>
-                                            <td>28 mai 2018</td>
-                                            <td>12h30</td>
-                                            <td>30 minutes</td>
-                                            <td>Jacques Chiroc</td>
-                                            <td>Ch. de l'Elysée 8</td>
-                                            <td>Lausanne</td>
-                                            <td>Informatique</td>
-                                            <td class="safa_action">Refusée</td>
-                                        </tr>
-                                        <tr>
-                                            <td>28 mai 2018</td>
-                                            <td>12h30</td>
-                                            <td>30 minutes</td>
-                                            <td>Jacques Chiroc</td>
-                                            <td>Ch. de l'Elysée 8</td>
-                                            <td>Lausanne</td>
-                                            <td>Informatique</td>
-                                            <td class="safa_action">Refusée</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                                        {{/ifEquals}}
+                                    {{/each}}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+</div>

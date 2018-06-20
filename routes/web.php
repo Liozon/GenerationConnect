@@ -34,6 +34,9 @@ Route::group(['prefix'=>'api'],function (){
     Route::resource('regions', 'RegionController');
     Route::resource('seniors', 'SeniorController');
     Route::resource('employes', 'EmployeController');
+
+    Route::get('juniorsdispos/{id}', 'JuniorController@juniorsdispos');
+
 });
 
 Route::group(['prefix'=>'api','middleware'=>'auth'],function (){

@@ -17,21 +17,21 @@ class AuthController extends Controller
             'pseudo' => $pseudo,
             'password' => $password,
         ])) {
-            $junior= "junior";
-            $senior = "senior";
-            $employe = "employe";
-            $user = User::where('pseudo',$pseudo)->first();
+
+            $user = User::with('groupes')->where('pseudo','=',$pseudo)->get()->first();
+
             $_SESSION['compte']['user_id'] = $user->id;
-            if(User::with('groupes')->where('users.pseudo',$pseudo)->where('nom',$junior)->get()){
-                return response()->json($_SESSION['compte']['user_id']);
+
+            if($user->groupes[0]->nom == "junior"){
+                return response()->json('junior');
             }
-            if(User::with('groupes')->where('users.pseudo',$pseudo)->where('nom',$senior)->get()){
+            if($user->groupes[0]->nom == "senior"){
                 return response()->json('senior');
             }
-            if(User::with('groupes')->where('users.pseudo',$pseudo)->where('nom',$employe)->get()){
+            if($user->groupes[0]->nom == "employe"){
                 return response()->json('employe');
             }
-            }
+        }
         return response()->json("identifiant incorrect");
     }
     public function logout(){

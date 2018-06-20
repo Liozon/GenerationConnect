@@ -33,13 +33,13 @@ class Demande extends Model
     public static $rules = [
         'junior_id' => 'exists:juniors,id|nullable',
         'senior_id' => 'exists:seniors,id|sometimes|required',
-        'employe_id' => 'exists:employes,id|sometimes|required',
+        'employe_id' => 'exists:employes,id|nullable',
         'description' => 'required|string',
         'date' => 'required|date',
         'heure' => 'required|date_format:"H:i:s"',
-        'duree' => 'required|integer',
+        'duree' => 'required|date_format:"H:i:s"',
         'titre' => 'required|string',
-        'statut' => 'required|in:"envoyé","reçu","accepté","validé","refusé"'
+        'statut' => 'required|in:"envoyé","reçu","accepté","validé","refusé","annulé"'
     ];
 
     public static function getValidation(Array $inputs)

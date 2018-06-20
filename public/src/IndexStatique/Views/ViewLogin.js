@@ -8,7 +8,6 @@ export default Backbone.View.extend({
         event.preventDefault(); // Don't let this button submit the form
         $('.alert-error').hide(); // Hide any errors on a new submit
         var url = 'http://pingouin.heig-vd.ch/jurazone/auth/login';
-        console.log('Loggin in... ');
         var formValues = {
             pseudo: $('#monPseudo').val(),
             password: $('#MonMot').val()
@@ -23,7 +22,6 @@ export default Backbone.View.extend({
 
                 if (data == "senior") { // 
                     window.location.replace('IndexSenior/index.php');
-                    console.log('oui');
                 } else {
                     if (data == "junior") {
                         window.location.replace('IndexJunior/index.php');
