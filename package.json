@@ -32,7 +32,7 @@
     "dependencies": {
         "backbone": "^1.4.0",
         "backbone.localstorage": "^2.0.2",
-        "handlebars": "^4.7.6",
+        "handlebars": "^4.7.7",
         "npm-check-updates": "^10.2.5",
         "underscore": "^1.12.0"
     },
