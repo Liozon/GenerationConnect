@@ -33,7 +33,7 @@
         "backbone": "^1.4.1",
         "backbone.localstorage": "^2.1.0",
         "handlebars": "^4.7.7",
-        "npm-check-updates": "^16.3.18",
+        "npm-check-updates": "^19.3.2",
         "underscore": "^1.13.6"
     },
     "private": true
